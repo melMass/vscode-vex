@@ -2,7 +2,7 @@
     "name": "vex",
     "displayName": "VEX",
     "description": "Houdini VEX Support for VSCode",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "melmass",
     "engines": {
         "vscode": "^1.12.0"
@@ -10,7 +10,7 @@
     "icon": "images/icon.png",
     "repository": {
         "type": "git",
-        "url":"https://github.com/melMass/vscode-vex.git"
+        "url": "https://github.com/melMass/vscode-vex.git"
     },
     "galleryBanner": {
         "color": "#FF8C08",
@@ -20,22 +20,31 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "vex",
-            "aliases": ["VEX", "vex"],
-            "extensions": [".vfl"],
-            "configuration": "./language-configuration.json"
-        }],
+        "languages": [
+            {
+                "id": "vex",
+                "aliases": [
+                    "VEX",
+                    "vex"
+                ],
+                "extensions": [
+                    ".vfl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
         "snippets": [
             {
                 "language": "vex",
                 "path": "./snippets/snippets.json"
             }
         ],
-        "grammars": [{
-            "language": "vex",
-            "scopeName": "source.vex",
-            "path": "./syntaxes/VEX.tmLanguage"
-        }]
+        "grammars": [
+            {
+                "language": "vex",
+                "scopeName": "source.vex",
+                "path": "./syntaxes/VEX.tmLanguage"
+            }
+        ]
     }
 }

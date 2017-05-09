@@ -1,0 +1,28 @@
+{
+	"for": {
+		"prefix": "for",
+		"body": "\n\nfor (int ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){\n    ${0:/* code */}\n}\n",
+		"description": "For Loop (int)",
+		"scope": "source.vex"
+	},
+	"foreach": {
+		"prefix": "foreach",
+		"body": "\n\nforeach (${1:item_type}; ${2:item}; ${3:array}){\n    ${0:/* code */}\n}\n",
+		"description": "Foreach Loop",
+		"scope": "source.vex"
+	},
+	// Point Cloud Iterate (exclude).
+	"pce": {
+		"prefix": "pce",
+		"body": "\nfloat search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(@OpInput1, \"P\", @P, search_rad, max_points+1);\n\nint near_pt;\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"point:number\", near_pt);\n    if (@ptnum != near_pt) {\n        // found a nearby point that isn't the search position\n        pcimport(handle, \"P\", near_p);\n    }\n}\n\npcclose(handle);\n",
+		"description": "Point Cloud Iterate Excluding Search Point (VEXpression)",
+		"scope": "source.vex"
+	},
+	// Point Cloud Iterate.
+	"pci": {
+		"prefix": "pci",
+		"body": "\nfloat search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(${3:0}, \"P\", @P, search_rad, max_points);\n\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"P\", near_p);\n}\n\npcclose(handle);\n",
+		"description": "Point Cloud Iterate (VEXpression)",
+		"scope": "source.vex"
+	}
+}

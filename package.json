@@ -1,0 +1,36 @@
+{
+    "name": "vex",
+    "displayName": "VEX",
+    "description": "Houdini VEX Support for VSCode",
+    "version": "0.0.1",
+    "publisher": "melmass",
+    "engines": {
+        "vscode": "^1.12.0"
+    },
+    "galleryBanner": {
+        "color": "#FF8C08",
+        "theme": "dark"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "vex",
+            "aliases": ["VEX", "vex"],
+            "extensions": [".vfl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "snippets": [
+            {
+                "language": "vex",
+                "path": "./snippets/snippets.json"
+            }
+        ],
+        "grammars": [{
+            "language": "vex",
+            "scopeName": "source.vex",
+            "path": "./syntaxes/VEX.tmLanguage"
+        }]
+    }
+}

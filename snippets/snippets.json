@@ -1,28 +1,3315 @@
 {
 	"for": {
 		"prefix": "for",
-		"body": "\n\nfor (int ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){\n    ${0:/* code */}\n}\n",
+		"body": "for (int ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){\n    ${0:/* code */}\n}\n",
 		"description": "For Loop (int)",
 		"scope": "source.vex"
 	},
 	"foreach": {
 		"prefix": "foreach",
-		"body": "\n\nforeach (${1:item_type}; ${2:item}; ${3:array}){\n    ${0:/* code */}\n}\n",
+		"body": "foreach (${1:item_type}; ${2:item}; ${3:array}){\n    ${0:/* code */}\n}\n",
 		"description": "Foreach Loop",
 		"scope": "source.vex"
 	},
 	// Point Cloud Iterate (exclude).
 	"pce": {
 		"prefix": "pce",
-		"body": "\nfloat search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(@OpInput1, \"P\", @P, search_rad, max_points+1);\n\nint near_pt;\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"point:number\", near_pt);\n    if (@ptnum != near_pt) {\n        // found a nearby point that isn't the search position\n        pcimport(handle, \"P\", near_p);\n    }\n}\n\npcclose(handle);\n",
+		"body": "float search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(@OpInput1, \"P\", @P, search_rad, max_points+1);\n\nint near_pt;\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"point:number\", near_pt);\n    if (@ptnum != near_pt) {\n        // found a nearby point that isn't the search position\n        pcimport(handle, \"P\", near_p);\n    }\n}\n\npcclose(handle);\n",
 		"description": "Point Cloud Iterate Excluding Search Point (VEXpression)",
 		"scope": "source.vex"
 	},
 	// Point Cloud Iterate.
 	"pci": {
 		"prefix": "pci",
-		"body": "\nfloat search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(${3:0}, \"P\", @P, search_rad, max_points);\n\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"P\", near_p);\n}\n\npcclose(handle);\n",
+		"body": "float search_rad = ${1:10.0};\nint   max_points = ${2:10};\n\nint handle = pcopen(${3:0}, \"P\", @P, search_rad, max_points);\n\nvector near_p;\n\nwhile( pciterate(handle) ) {\n    pcimport(handle, \"P\", near_p);\n}\n\npcclose(handle);\n",
 		"description": "Point Cloud Iterate (VEXpression)",
 		"scope": "source.vex"
+	},
+
+	"Du": {
+		"body": "Du(${1})",
+		"prefix": "Du",
+		"scope": "source.vex"
+	},
+	"Dv": {
+		"body": "Dv(${1})",
+		"prefix": "Dv",
+		"scope": "source.vex"
+	},
+	"Dw": {
+		"body": "Dw(${1})",
+		"prefix": "Dw",
+		"scope": "source.vex"
+	},
+	"abs": {
+		"body": "abs(${1})",
+		"prefix": "abs",
+		"scope": "source.vex"
+	},
+	"accessframe": {
+		"body": "accessframe(${1})",
+		"prefix": "accessframe",
+		"scope": "source.vex"
+	},
+	"acos": {
+		"body": "acos(${1})",
+		"prefix": "acos",
+		"scope": "source.vex"
+	},
+	"addattrib": {
+		"body": "addattrib(${1})",
+		"prefix": "addattrib",
+		"scope": "source.vex"
+	},
+	"addattribute": {
+		"body": "addattribute(${1})",
+		"prefix": "addattribute",
+		"scope": "source.vex"
+	},
+	"adddetailattrib": {
+		"body": "adddetailattrib(${1})",
+		"prefix": "adddetailattrib",
+		"scope": "source.vex"
+	},
+	"addgroup": {
+		"body": "addgroup(${1})",
+		"prefix": "addgroup",
+		"scope": "source.vex"
+	},
+	"addpoint": {
+		"body": "addpoint(${1})",
+		"prefix": "addpoint",
+		"scope": "source.vex"
+	},
+	"addpointattrib": {
+		"body": "addpointattrib(${1})",
+		"prefix": "addpointattrib",
+		"scope": "source.vex"
+	},
+	"addprim": {
+		"body": "addprim(${1})",
+		"prefix": "addprim",
+		"scope": "source.vex"
+	},
+	"addprimattrib": {
+		"body": "addprimattrib(${1})",
+		"prefix": "addprimattrib",
+		"scope": "source.vex"
+	},
+	"addvariablename": {
+		"body": "addvariablename(${1})",
+		"prefix": "addvariablename",
+		"scope": "source.vex"
+	},
+	"addvertex": {
+		"body": "addvertex(${1})",
+		"prefix": "addvertex",
+		"scope": "source.vex"
+	},
+	"addvertexattrib": {
+		"body": "addvertexattrib(${1})",
+		"prefix": "addvertexattrib",
+		"scope": "source.vex"
+	},
+	"addvisualizer": {
+		"body": "addvisualizer(${1})",
+		"prefix": "addvisualizer",
+		"scope": "source.vex"
+	},
+	"agentaddclip": {
+		"body": "agentaddclip(${1})",
+		"prefix": "agentaddclip",
+		"scope": "source.vex"
+	},
+	"agentclipcatalog": {
+		"body": "agentclipcatalog(${1})",
+		"prefix": "agentclipcatalog",
+		"scope": "source.vex"
+	},
+	"agentclipchannel": {
+		"body": "agentclipchannel(${1})",
+		"prefix": "agentclipchannel",
+		"scope": "source.vex"
+	},
+	"agentcliplength": {
+		"body": "agentcliplength(${1})",
+		"prefix": "agentcliplength",
+		"scope": "source.vex"
+	},
+	"agentclipnames": {
+		"body": "agentclipnames(${1})",
+		"prefix": "agentclipnames",
+		"scope": "source.vex"
+	},
+	"agentclipsample": {
+		"body": "agentclipsample(${1})",
+		"prefix": "agentclipsample",
+		"scope": "source.vex"
+	},
+	"agentclipsamplelocal": {
+		"body": "agentclipsamplelocal(${1})",
+		"prefix": "agentclipsamplelocal",
+		"scope": "source.vex"
+	},
+	"agentclipsamplerate": {
+		"body": "agentclipsamplerate(${1})",
+		"prefix": "agentclipsamplerate",
+		"scope": "source.vex"
+	},
+	"agentclipsampleworld": {
+		"body": "agentclipsampleworld(${1})",
+		"prefix": "agentclipsampleworld",
+		"scope": "source.vex"
+	},
+	"agentcliptimes": {
+		"body": "agentcliptimes(${1})",
+		"prefix": "agentcliptimes",
+		"scope": "source.vex"
+	},
+	"agentclipweights": {
+		"body": "agentclipweights(${1})",
+		"prefix": "agentclipweights",
+		"scope": "source.vex"
+	},
+	"agentcollisionlayer": {
+		"body": "agentcollisionlayer(${1})",
+		"prefix": "agentcollisionlayer",
+		"scope": "source.vex"
+	},
+	"agentcurrentlayer": {
+		"body": "agentcurrentlayer(${1})",
+		"prefix": "agentcurrentlayer",
+		"scope": "source.vex"
+	},
+	"agentlayerbindings": {
+		"body": "agentlayerbindings(${1})",
+		"prefix": "agentlayerbindings",
+		"scope": "source.vex"
+	},
+	"agentlayers": {
+		"body": "agentlayers(${1})",
+		"prefix": "agentlayers",
+		"scope": "source.vex"
+	},
+	"agentlayershapes": {
+		"body": "agentlayershapes(${1})",
+		"prefix": "agentlayershapes",
+		"scope": "source.vex"
+	},
+	"agentlocaltransform": {
+		"body": "agentlocaltransform(${1})",
+		"prefix": "agentlocaltransform",
+		"scope": "source.vex"
+	},
+	"agentlocaltransforms": {
+		"body": "agentlocaltransforms(${1})",
+		"prefix": "agentlocaltransforms",
+		"scope": "source.vex"
+	},
+	"agentrigchildren": {
+		"body": "agentrigchildren(${1})",
+		"prefix": "agentrigchildren",
+		"scope": "source.vex"
+	},
+	"agentrigfind": {
+		"body": "agentrigfind(${1})",
+		"prefix": "agentrigfind",
+		"scope": "source.vex"
+	},
+	"agentrigparent": {
+		"body": "agentrigparent(${1})",
+		"prefix": "agentrigparent",
+		"scope": "source.vex"
+	},
+	"agenttransformcount": {
+		"body": "agenttransformcount(${1})",
+		"prefix": "agenttransformcount",
+		"scope": "source.vex"
+	},
+	"agenttransformnames": {
+		"body": "agenttransformnames(${1})",
+		"prefix": "agenttransformnames",
+		"scope": "source.vex"
+	},
+	"agenttransformtolocal": {
+		"body": "agenttransformtolocal(${1})",
+		"prefix": "agenttransformtolocal",
+		"scope": "source.vex"
+	},
+	"agenttransformtoworld": {
+		"body": "agenttransformtoworld(${1})",
+		"prefix": "agenttransformtoworld",
+		"scope": "source.vex"
+	},
+	"agentworldtransform": {
+		"body": "agentworldtransform(${1})",
+		"prefix": "agentworldtransform",
+		"scope": "source.vex"
+	},
+	"agentworldtransforms": {
+		"body": "agentworldtransforms(${1})",
+		"prefix": "agentworldtransforms",
+		"scope": "source.vex"
+	},
+	"albedo": {
+		"body": "albedo(${1})",
+		"prefix": "albedo",
+		"scope": "source.vex"
+	},
+	"alphaname": {
+		"body": "alphaname(${1})",
+		"prefix": "alphaname",
+		"scope": "source.vex"
+	},
+	"ambient": {
+		"body": "ambient(${1})",
+		"prefix": "ambient",
+		"scope": "source.vex"
+	},
+	"anoise": {
+		"body": "anoise(${1})",
+		"prefix": "anoise",
+		"scope": "source.vex"
+	},
+	"append": {
+		"body": "append(${1})",
+		"prefix": "append",
+		"scope": "source.vex"
+	},
+	"area": {
+		"body": "area(${1})",
+		"prefix": "area",
+		"scope": "source.vex"
+	},
+	"argsort": {
+		"body": "argsort(${1})",
+		"prefix": "argsort",
+		"scope": "source.vex"
+	},
+	"array": {
+		"body": "array(${1})",
+		"prefix": "array",
+		"scope": "source.vex"
+	},
+	"ashikhmin": {
+		"body": "ashikhmin(${1})",
+		"prefix": "ashikhmin",
+		"scope": "source.vex"
+	},
+	"asin": {
+		"body": "asin(${1})",
+		"prefix": "asin",
+		"scope": "source.vex"
+	},
+	"assert_enabled": {
+		"body": "assert_enabled(${1})",
+		"prefix": "assert_enabled",
+		"scope": "source.vex"
+	},
+	"assign": {
+		"body": "assign(${1})",
+		"prefix": "assign",
+		"scope": "source.vex"
+	},
+	"atan": {
+		"body": "atan(${1})",
+		"prefix": "atan",
+		"scope": "source.vex"
+	},
+	"atan2": {
+		"body": "atan2(${1})",
+		"prefix": "atan2",
+		"scope": "source.vex"
+	},
+	"atof": {
+		"body": "atof(${1})",
+		"prefix": "atof",
+		"scope": "source.vex"
+	},
+	"atoi": {
+		"body": "atoi(${1})",
+		"prefix": "atoi",
+		"scope": "source.vex"
+	},
+	"atten": {
+		"body": "atten(${1})",
+		"prefix": "atten",
+		"scope": "source.vex"
+	},
+	"attrib": {
+		"body": "attrib(${1})",
+		"prefix": "attrib",
+		"scope": "source.vex"
+	},
+	"attribclass": {
+		"body": "attribclass(${1})",
+		"prefix": "attribclass",
+		"scope": "source.vex"
+	},
+	"attribsize": {
+		"body": "attribsize(${1})",
+		"prefix": "attribsize",
+		"scope": "source.vex"
+	},
+	"attribtype": {
+		"body": "attribtype(${1})",
+		"prefix": "attribtype",
+		"scope": "source.vex"
+	},
+	"attribtypeinfo": {
+		"body": "attribtypeinfo(${1})",
+		"prefix": "attribtypeinfo",
+		"scope": "source.vex"
+	},
+	"avg": {
+		"body": "avg(${1})",
+		"prefix": "avg",
+		"scope": "source.vex"
+	},
+	"binput": {
+		"body": "binput(${1})",
+		"prefix": "binput",
+		"scope": "source.vex"
+	},
+	"blackbody": {
+		"body": "blackbody(${1})",
+		"prefix": "blackbody",
+		"scope": "source.vex"
+	},
+	"blinn": {
+		"body": "blinn(${1})",
+		"prefix": "blinn",
+		"scope": "source.vex"
+	},
+	"blinnBRDF": {
+		"body": "blinnBRDF(${1})",
+		"prefix": "blinnBRDF",
+		"scope": "source.vex"
+	},
+	"bouncelabel": {
+		"body": "bouncelabel(${1})",
+		"prefix": "bouncelabel",
+		"scope": "source.vex"
+	},
+	"bouncemask": {
+		"body": "bouncemask(${1})",
+		"prefix": "bouncemask",
+		"scope": "source.vex"
+	},
+	"bumpmap": {
+		"body": "bumpmap(${1})",
+		"prefix": "bumpmap",
+		"scope": "source.vex"
+	},
+	"bumpmapA": {
+		"body": "bumpmapA(${1})",
+		"prefix": "bumpmapA",
+		"scope": "source.vex"
+	},
+	"bumpmapB": {
+		"body": "bumpmapB(${1})",
+		"prefix": "bumpmapB",
+		"scope": "source.vex"
+	},
+	"bumpmapG": {
+		"body": "bumpmapG(${1})",
+		"prefix": "bumpmapG",
+		"scope": "source.vex"
+	},
+	"bumpmapL": {
+		"body": "bumpmapL(${1})",
+		"prefix": "bumpmapL",
+		"scope": "source.vex"
+	},
+	"bumpmapR": {
+		"body": "bumpmapR(${1})",
+		"prefix": "bumpmapR",
+		"scope": "source.vex"
+	},
+	"bumpname": {
+		"body": "bumpname(${1})",
+		"prefix": "bumpname",
+		"scope": "source.vex"
+	},
+	"cbrt": {
+		"body": "cbrt(${1})",
+		"prefix": "cbrt",
+		"scope": "source.vex"
+	},
+	"ceil": {
+		"body": "ceil(${1})",
+		"prefix": "ceil",
+		"scope": "source.vex"
+	},
+	"ch": {
+		"body": "ch(${1})",
+		"prefix": "ch",
+		"scope": "source.vex"
+	},
+	"ch3": {
+		"body": "ch3(${1})",
+		"prefix": "ch3",
+		"scope": "source.vex"
+	},
+	"ch4": {
+		"body": "ch4(${1})",
+		"prefix": "ch4",
+		"scope": "source.vex"
+	},
+	"chend": {
+		"body": "chend(${1})",
+		"prefix": "chend",
+		"scope": "source.vex"
+	},
+	"chendf": {
+		"body": "chendf(${1})",
+		"prefix": "chendf",
+		"scope": "source.vex"
+	},
+	"chendt": {
+		"body": "chendt(${1})",
+		"prefix": "chendt",
+		"scope": "source.vex"
+	},
+	"chf": {
+		"body": "chf(${1})",
+		"prefix": "chf",
+		"scope": "source.vex"
+	},
+	"chi": {
+		"body": "chi(${1})",
+		"prefix": "chi",
+		"scope": "source.vex"
+	},
+	"chinput": {
+		"body": "chinput(${1})",
+		"prefix": "chinput",
+		"scope": "source.vex"
+	},
+	"chname": {
+		"body": "chname(${1})",
+		"prefix": "chname",
+		"scope": "source.vex"
+	},
+	"chnumchan": {
+		"body": "chnumchan(${1})",
+		"prefix": "chnumchan",
+		"scope": "source.vex"
+	},
+	"chp": {
+		"body": "chp(${1})",
+		"prefix": "chp",
+		"scope": "source.vex"
+	},
+	"chr": {
+		"body": "chr(${1})",
+		"prefix": "chr",
+		"scope": "source.vex"
+	},
+	"chramp": {
+		"body": "chramp(${1})",
+		"prefix": "chramp",
+		"scope": "source.vex"
+	},
+	"chrate": {
+		"body": "chrate(${1})",
+		"prefix": "chrate",
+		"scope": "source.vex"
+	},
+	"chs": {
+		"body": "chs(${1})",
+		"prefix": "chs",
+		"scope": "source.vex"
+	},
+	"chsraw": {
+		"body": "chsraw(${1})",
+		"prefix": "chsraw",
+		"scope": "source.vex"
+	},
+	"chstart": {
+		"body": "chstart(${1})",
+		"prefix": "chstart",
+		"scope": "source.vex"
+	},
+	"chstartf": {
+		"body": "chstartf(${1})",
+		"prefix": "chstartf",
+		"scope": "source.vex"
+	},
+	"chstartt": {
+		"body": "chstartt(${1})",
+		"prefix": "chstartt",
+		"scope": "source.vex"
+	},
+	"chv": {
+		"body": "chv(${1})",
+		"prefix": "chv",
+		"scope": "source.vex"
+	},
+	"cinput": {
+		"body": "cinput(${1})",
+		"prefix": "cinput",
+		"scope": "source.vex"
+	},
+	"ckspline": {
+		"body": "ckspline(${1})",
+		"prefix": "ckspline",
+		"scope": "source.vex"
+	},
+	"clamp": {
+		"body": "clamp(${1})",
+		"prefix": "clamp",
+		"scope": "source.vex"
+	},
+	"clip": {
+		"body": "clip(${1})",
+		"prefix": "clip",
+		"scope": "source.vex"
+	},
+	"colormap": {
+		"body": "colormap(${1})",
+		"prefix": "colormap",
+		"scope": "source.vex"
+	},
+	"colorname": {
+		"body": "colorname(${1})",
+		"prefix": "colorname",
+		"scope": "source.vex"
+	},
+	"computenormal": {
+		"body": "computenormal(${1})",
+		"prefix": "computenormal",
+		"scope": "source.vex"
+	},
+	"concat": {
+		"body": "concat(${1})",
+		"prefix": "concat",
+		"scope": "source.vex"
+	},
+	"cone": {
+		"body": "cone(${1})",
+		"prefix": "cone",
+		"scope": "source.vex"
+	},
+	"cos": {
+		"body": "cos(${1})",
+		"prefix": "cos",
+		"scope": "source.vex"
+	},
+	"cosh": {
+		"body": "cosh(${1})",
+		"prefix": "cosh",
+		"scope": "source.vex"
+	},
+	"cracktransform": {
+		"body": "cracktransform(${1})",
+		"prefix": "cracktransform",
+		"scope": "source.vex"
+	},
+	"cross": {
+		"body": "cross(${1})",
+		"prefix": "cross",
+		"scope": "source.vex"
+	},
+	"cspline": {
+		"body": "cspline(${1})",
+		"prefix": "cspline",
+		"scope": "source.vex"
+	},
+	"ctransform": {
+		"body": "ctransform(${1})",
+		"prefix": "ctransform",
+		"scope": "source.vex"
+	},
+	"curlnoise": {
+		"body": "curlnoise(${1})",
+		"prefix": "curlnoise",
+		"scope": "source.vex"
+	},
+	"curlnoise2d": {
+		"body": "curlnoise2d(${1})",
+		"prefix": "curlnoise2d",
+		"scope": "source.vex"
+	},
+	"curlxnoise": {
+		"body": "curlxnoise(${1})",
+		"prefix": "curlxnoise",
+		"scope": "source.vex"
+	},
+	"curlxnoise2d": {
+		"body": "curlxnoise2d(${1})",
+		"prefix": "curlxnoise2d",
+		"scope": "source.vex"
+	},
+	"cvex_bsdf": {
+		"body": "cvex_bsdf(${1})",
+		"prefix": "cvex_bsdf",
+		"scope": "source.vex"
+	},
+	"degrees": {
+		"body": "degrees(${1})",
+		"prefix": "degrees",
+		"scope": "source.vex"
+	},
+	"depthmap": {
+		"body": "depthmap(${1})",
+		"prefix": "depthmap",
+		"scope": "source.vex"
+	},
+	"depthname": {
+		"body": "depthname(${1})",
+		"prefix": "depthname",
+		"scope": "source.vex"
+	},
+	"detail": {
+		"body": "detail(${1})",
+		"prefix": "detail",
+		"scope": "source.vex"
+	},
+	"detailattrib": {
+		"body": "detailattrib(${1})",
+		"prefix": "detailattrib",
+		"scope": "source.vex"
+	},
+	"detailattribsize": {
+		"body": "detailattribsize(${1})",
+		"prefix": "detailattribsize",
+		"scope": "source.vex"
+	},
+	"detailattribtype": {
+		"body": "detailattribtype(${1})",
+		"prefix": "detailattribtype",
+		"scope": "source.vex"
+	},
+	"detailattribtypeinfo": {
+		"body": "detailattribtypeinfo(${1})",
+		"prefix": "detailattribtypeinfo",
+		"scope": "source.vex"
+	},
+	"detailintrinsic": {
+		"body": "detailintrinsic(${1})",
+		"prefix": "detailintrinsic",
+		"scope": "source.vex"
+	},
+	"determinant": {
+		"body": "determinant(${1})",
+		"prefix": "determinant",
+		"scope": "source.vex"
+	},
+	"diffuse": {
+		"body": "diffuse(${1})",
+		"prefix": "diffuse",
+		"scope": "source.vex"
+	},
+	"diffuseBRDF": {
+		"body": "diffuseBRDF(${1})",
+		"prefix": "diffuseBRDF",
+		"scope": "source.vex"
+	},
+	"dihedral": {
+		"body": "dihedral(${1})",
+		"prefix": "dihedral",
+		"scope": "source.vex"
+	},
+	"dimport": {
+		"body": "dimport(${1})",
+		"prefix": "dimport",
+		"scope": "source.vex"
+	},
+	"distance": {
+		"body": "distance(${1})",
+		"prefix": "distance",
+		"scope": "source.vex"
+	},
+	"distance2": {
+		"body": "distance2(${1})",
+		"prefix": "distance2",
+		"scope": "source.vex"
+	},
+	"dot": {
+		"body": "dot(${1})",
+		"prefix": "dot",
+		"scope": "source.vex"
+	},
+	"dsmpixel": {
+		"body": "dsmpixel(${1})",
+		"prefix": "dsmpixel",
+		"scope": "source.vex"
+	},
+	"eigenvalues": {
+		"body": "eigenvalues(${1})",
+		"prefix": "eigenvalues",
+		"scope": "source.vex"
+	},
+	"endswith": {
+		"body": "endswith(${1})",
+		"prefix": "endswith",
+		"scope": "source.vex"
+	},
+	"environment": {
+		"body": "environment(${1})",
+		"prefix": "environment",
+		"scope": "source.vex"
+	},
+	"erf": {
+		"body": "erf(${1})",
+		"prefix": "erf",
+		"scope": "source.vex"
+	},
+	"erf_inv": {
+		"body": "erf_inv(${1})",
+		"prefix": "erf_inv",
+		"scope": "source.vex"
+	},
+	"erfc": {
+		"body": "erfc(${1})",
+		"prefix": "erfc",
+		"scope": "source.vex"
+	},
+	"error": {
+		"body": "error(${1})",
+		"prefix": "error",
+		"scope": "source.vex"
+	},
+	"eulertoquaternion": {
+		"body": "eulertoquaternion(${1})",
+		"prefix": "eulertoquaternion",
+		"scope": "source.vex"
+	},
+	"eval_bsdf": {
+		"body": "eval_bsdf(${1})",
+		"prefix": "eval_bsdf",
+		"scope": "source.vex"
+	},
+	"exp": {
+		"body": "exp(${1})",
+		"prefix": "exp",
+		"scope": "source.vex"
+	},
+	"expand_udim": {
+		"body": "expand_udim(${1})",
+		"prefix": "expand_udim",
+		"scope": "source.vex"
+	},
+	"expandpointgroup": {
+		"body": "expandpointgroup(${1})",
+		"prefix": "expandpointgroup",
+		"scope": "source.vex"
+	},
+	"expandprimgroup": {
+		"body": "expandprimgroup(${1})",
+		"prefix": "expandprimgroup",
+		"scope": "source.vex"
+	},
+	"fastshadow": {
+		"body": "fastshadow(${1})",
+		"prefix": "fastshadow",
+		"scope": "source.vex"
+	},
+	"filamentsample": {
+		"body": "filamentsample(${1})",
+		"prefix": "filamentsample",
+		"scope": "source.vex"
+	},
+	"file_stat": {
+		"body": "file_stat(${1})",
+		"prefix": "file_stat",
+		"scope": "source.vex"
+	},
+	"filtershadow": {
+		"body": "filtershadow(${1})",
+		"prefix": "filtershadow",
+		"scope": "source.vex"
+	},
+	"filterstep": {
+		"body": "filterstep(${1})",
+		"prefix": "filterstep",
+		"scope": "source.vex"
+	},
+	"find": {
+		"body": "find(${1})",
+		"prefix": "find",
+		"scope": "source.vex"
+	},
+	"findattribval": {
+		"body": "findattribval(${1})",
+		"prefix": "findattribval",
+		"scope": "source.vex"
+	},
+	"findattribvalcount": {
+		"body": "findattribvalcount(${1})",
+		"prefix": "findattribvalcount",
+		"scope": "source.vex"
+	},
+	"finput": {
+		"body": "finput(${1})",
+		"prefix": "finput",
+		"scope": "source.vex"
+	},
+	"fit": {
+		"body": "fit(${1})",
+		"prefix": "fit",
+		"scope": "source.vex"
+	},
+	"fit01": {
+		"body": "fit01(${1})",
+		"prefix": "fit01",
+		"scope": "source.vex"
+	},
+	"fit10": {
+		"body": "fit10(${1})",
+		"prefix": "fit10",
+		"scope": "source.vex"
+	},
+	"fit11": {
+		"body": "fit11(${1})",
+		"prefix": "fit11",
+		"scope": "source.vex"
+	},
+	"floor": {
+		"body": "floor(${1})",
+		"prefix": "floor",
+		"scope": "source.vex"
+	},
+	"flownoise": {
+		"body": "flownoise(${1})",
+		"prefix": "flownoise",
+		"scope": "source.vex"
+	},
+	"flowpnoise": {
+		"body": "flowpnoise(${1})",
+		"prefix": "flowpnoise",
+		"scope": "source.vex"
+	},
+	"frac": {
+		"body": "frac(${1})",
+		"prefix": "frac",
+		"scope": "source.vex"
+	},
+	"fresnel": {
+		"body": "fresnel(${1})",
+		"prefix": "fresnel",
+		"scope": "source.vex"
+	},
+	"fromNDC": {
+		"body": "fromNDC(${1})",
+		"prefix": "fromNDC",
+		"scope": "source.vex"
+	},
+	"frontface": {
+		"body": "frontface(${1})",
+		"prefix": "frontface",
+		"scope": "source.vex"
+	},
+	"fuzzify": {
+		"body": "fuzzify(${1})",
+		"prefix": "fuzzify",
+		"scope": "source.vex"
+	},
+	"fuzzy_and": {
+		"body": "fuzzy_and(${1})",
+		"prefix": "fuzzy_and",
+		"scope": "source.vex"
+	},
+	"fuzzy_defuzz_centroid": {
+		"body": "fuzzy_defuzz_centroid(${1})",
+		"prefix": "fuzzy_defuzz_centroid",
+		"scope": "source.vex"
+	},
+	"fuzzy_nand": {
+		"body": "fuzzy_nand(${1})",
+		"prefix": "fuzzy_nand",
+		"scope": "source.vex"
+	},
+	"fuzzy_nor": {
+		"body": "fuzzy_nor(${1})",
+		"prefix": "fuzzy_nor",
+		"scope": "source.vex"
+	},
+	"fuzzy_not": {
+		"body": "fuzzy_not(${1})",
+		"prefix": "fuzzy_not",
+		"scope": "source.vex"
+	},
+	"fuzzy_nxor": {
+		"body": "fuzzy_nxor(${1})",
+		"prefix": "fuzzy_nxor",
+		"scope": "source.vex"
+	},
+	"fuzzy_or": {
+		"body": "fuzzy_or(${1})",
+		"prefix": "fuzzy_or",
+		"scope": "source.vex"
+	},
+	"fuzzy_xor": {
+		"body": "fuzzy_xor(${1})",
+		"prefix": "fuzzy_xor",
+		"scope": "source.vex"
+	},
+	"geoself": {
+		"body": "geoself(${1})",
+		"prefix": "geoself",
+		"scope": "source.vex"
+	},
+	"getattrib": {
+		"body": "getattrib(${1})",
+		"prefix": "getattrib",
+		"scope": "source.vex"
+	},
+	"getattribute": {
+		"body": "getattribute(${1})",
+		"prefix": "getattribute",
+		"scope": "source.vex"
+	},
+	"getbbox": {
+		"body": "getbbox(${1})",
+		"prefix": "getbbox",
+		"scope": "source.vex"
+	},
+	"getblurP": {
+		"body": "getblurP(${1})",
+		"prefix": "getblurP",
+		"scope": "source.vex"
+	},
+	"getbounces": {
+		"body": "getbounces(${1})",
+		"prefix": "getbounces",
+		"scope": "source.vex"
+	},
+	"getbounds": {
+		"body": "getbounds(${1})",
+		"prefix": "getbounds",
+		"scope": "source.vex"
+	},
+	"getcomp": {
+		"body": "getcomp(${1})",
+		"prefix": "getcomp",
+		"scope": "source.vex"
+	},
+	"getcomponents": {
+		"body": "getcomponents(${1})",
+		"prefix": "getcomponents",
+		"scope": "source.vex"
+	},
+	"getderiv": {
+		"body": "getderiv(${1})",
+		"prefix": "getderiv",
+		"scope": "source.vex"
+	},
+	"getfogname": {
+		"body": "getfogname(${1})",
+		"prefix": "getfogname",
+		"scope": "source.vex"
+	},
+	"getglobalraylevel": {
+		"body": "getglobalraylevel(${1})",
+		"prefix": "getglobalraylevel",
+		"scope": "source.vex"
+	},
+	"getlight": {
+		"body": "getlight(${1})",
+		"prefix": "getlight",
+		"scope": "source.vex"
+	},
+	"getlightid": {
+		"body": "getlightid(${1})",
+		"prefix": "getlightid",
+		"scope": "source.vex"
+	},
+	"getlightname": {
+		"body": "getlightname(${1})",
+		"prefix": "getlightname",
+		"scope": "source.vex"
+	},
+	"getlights": {
+		"body": "getlights(${1})",
+		"prefix": "getlights",
+		"scope": "source.vex"
+	},
+	"getlightscope": {
+		"body": "getlightscope(${1})",
+		"prefix": "getlightscope",
+		"scope": "source.vex"
+	},
+	"getmaterial": {
+		"body": "getmaterial(${1})",
+		"prefix": "getmaterial",
+		"scope": "source.vex"
+	},
+	"getobjectname": {
+		"body": "getobjectname(${1})",
+		"prefix": "getobjectname",
+		"scope": "source.vex"
+	},
+	"getphotonlight": {
+		"body": "getphotonlight(${1})",
+		"prefix": "getphotonlight",
+		"scope": "source.vex"
+	},
+	"getpointbbox": {
+		"body": "getpointbbox(${1})",
+		"prefix": "getpointbbox",
+		"scope": "source.vex"
+	},
+	"getprimid": {
+		"body": "getprimid(${1})",
+		"prefix": "getprimid",
+		"scope": "source.vex"
+	},
+	"getptextureid": {
+		"body": "getptextureid(${1})",
+		"prefix": "getptextureid",
+		"scope": "source.vex"
+	},
+	"getraylevel": {
+		"body": "getraylevel(${1})",
+		"prefix": "getraylevel",
+		"scope": "source.vex"
+	},
+	"getrayweight": {
+		"body": "getrayweight(${1})",
+		"prefix": "getrayweight",
+		"scope": "source.vex"
+	},
+	"getsamplestore": {
+		"body": "getsamplestore(${1})",
+		"prefix": "getsamplestore",
+		"scope": "source.vex"
+	},
+	"getscope": {
+		"body": "getscope(${1})",
+		"prefix": "getscope",
+		"scope": "source.vex"
+	},
+	"getsmoothP": {
+		"body": "getsmoothP(${1})",
+		"prefix": "getsmoothP",
+		"scope": "source.vex"
+	},
+	"getspace": {
+		"body": "getspace(${1})",
+		"prefix": "getspace",
+		"scope": "source.vex"
+	},
+	"getuvobjects": {
+		"body": "getuvobjects(${1})",
+		"prefix": "getuvobjects",
+		"scope": "source.vex"
+	},
+	"getuvtangents": {
+		"body": "getuvtangents(${1})",
+		"prefix": "getuvtangents",
+		"scope": "source.vex"
+	},
+	"gradient": {
+		"body": "gradient(${1})",
+		"prefix": "gradient",
+		"scope": "source.vex"
+	},
+	"hair": {
+		"body": "hair(${1})",
+		"prefix": "hair",
+		"scope": "source.vex"
+	},
+	"hasattrib": {
+		"body": "hasattrib(${1})",
+		"prefix": "hasattrib",
+		"scope": "source.vex"
+	},
+	"hasdetailattrib": {
+		"body": "hasdetailattrib(${1})",
+		"prefix": "hasdetailattrib",
+		"scope": "source.vex"
+	},
+	"haslight": {
+		"body": "haslight(${1})",
+		"prefix": "haslight",
+		"scope": "source.vex"
+	},
+	"hasplane": {
+		"body": "hasplane(${1})",
+		"prefix": "hasplane",
+		"scope": "source.vex"
+	},
+	"haspointattrib": {
+		"body": "haspointattrib(${1})",
+		"prefix": "haspointattrib",
+		"scope": "source.vex"
+	},
+	"hasprimattrib": {
+		"body": "hasprimattrib(${1})",
+		"prefix": "hasprimattrib",
+		"scope": "source.vex"
+	},
+	"hasvertexattrib": {
+		"body": "hasvertexattrib(${1})",
+		"prefix": "hasvertexattrib",
+		"scope": "source.vex"
+	},
+	"hedge_dstpoint": {
+		"body": "hedge_dstpoint(${1})",
+		"prefix": "hedge_dstpoint",
+		"scope": "source.vex"
+	},
+	"hedge_dstvertex": {
+		"body": "hedge_dstvertex(${1})",
+		"prefix": "hedge_dstvertex",
+		"scope": "source.vex"
+	},
+	"hedge_equivcount": {
+		"body": "hedge_equivcount(${1})",
+		"prefix": "hedge_equivcount",
+		"scope": "source.vex"
+	},
+	"hedge_isequiv": {
+		"body": "hedge_isequiv(${1})",
+		"prefix": "hedge_isequiv",
+		"scope": "source.vex"
+	},
+	"hedge_isprimary": {
+		"body": "hedge_isprimary(${1})",
+		"prefix": "hedge_isprimary",
+		"scope": "source.vex"
+	},
+	"hedge_isvalid": {
+		"body": "hedge_isvalid(${1})",
+		"prefix": "hedge_isvalid",
+		"scope": "source.vex"
+	},
+	"hedge_next": {
+		"body": "hedge_next(${1})",
+		"prefix": "hedge_next",
+		"scope": "source.vex"
+	},
+	"hedge_nextequiv": {
+		"body": "hedge_nextequiv(${1})",
+		"prefix": "hedge_nextequiv",
+		"scope": "source.vex"
+	},
+	"hedge_postdstpoint": {
+		"body": "hedge_postdstpoint(${1})",
+		"prefix": "hedge_postdstpoint",
+		"scope": "source.vex"
+	},
+	"hedge_postdstvertex": {
+		"body": "hedge_postdstvertex(${1})",
+		"prefix": "hedge_postdstvertex",
+		"scope": "source.vex"
+	},
+	"hedge_presrcpoint": {
+		"body": "hedge_presrcpoint(${1})",
+		"prefix": "hedge_presrcpoint",
+		"scope": "source.vex"
+	},
+	"hedge_presrcvertex": {
+		"body": "hedge_presrcvertex(${1})",
+		"prefix": "hedge_presrcvertex",
+		"scope": "source.vex"
+	},
+	"hedge_prev": {
+		"body": "hedge_prev(${1})",
+		"prefix": "hedge_prev",
+		"scope": "source.vex"
+	},
+	"hedge_prim": {
+		"body": "hedge_prim(${1})",
+		"prefix": "hedge_prim",
+		"scope": "source.vex"
+	},
+	"hedge_primary": {
+		"body": "hedge_primary(${1})",
+		"prefix": "hedge_primary",
+		"scope": "source.vex"
+	},
+	"hedge_srcpoint": {
+		"body": "hedge_srcpoint(${1})",
+		"prefix": "hedge_srcpoint",
+		"scope": "source.vex"
+	},
+	"hedge_srcvertex": {
+		"body": "hedge_srcvertex(${1})",
+		"prefix": "hedge_srcvertex",
+		"scope": "source.vex"
+	},
+	"henyeygreenstein": {
+		"body": "henyeygreenstein(${1})",
+		"prefix": "henyeygreenstein",
+		"scope": "source.vex"
+	},
+	"hscript_noise": {
+		"body": "hscript_noise(${1})",
+		"prefix": "hscript_noise",
+		"scope": "source.vex"
+	},
+	"hscript_rand": {
+		"body": "hscript_rand(${1})",
+		"prefix": "hscript_rand",
+		"scope": "source.vex"
+	},
+	"hscript_snoise": {
+		"body": "hscript_snoise(${1})",
+		"prefix": "hscript_snoise",
+		"scope": "source.vex"
+	},
+	"hscript_sturb": {
+		"body": "hscript_sturb(${1})",
+		"prefix": "hscript_sturb",
+		"scope": "source.vex"
+	},
+	"hscript_turb": {
+		"body": "hscript_turb(${1})",
+		"prefix": "hscript_turb",
+		"scope": "source.vex"
+	},
+	"hsvtorgb": {
+		"body": "hsvtorgb(${1})",
+		"prefix": "hsvtorgb",
+		"scope": "source.vex"
+	},
+	"iaspect": {
+		"body": "iaspect(${1})",
+		"prefix": "iaspect",
+		"scope": "source.vex"
+	},
+	"ichname": {
+		"body": "ichname(${1})",
+		"prefix": "ichname",
+		"scope": "source.vex"
+	},
+	"ident": {
+		"body": "ident(${1})",
+		"prefix": "ident",
+		"scope": "source.vex"
+	},
+	"idtopoint": {
+		"body": "idtopoint(${1})",
+		"prefix": "idtopoint",
+		"scope": "source.vex"
+	},
+	"idtoprim": {
+		"body": "idtoprim(${1})",
+		"prefix": "idtoprim",
+		"scope": "source.vex"
+	},
+	"iend": {
+		"body": "iend(${1})",
+		"prefix": "iend",
+		"scope": "source.vex"
+	},
+	"iendtime": {
+		"body": "iendtime(${1})",
+		"prefix": "iendtime",
+		"scope": "source.vex"
+	},
+	"ihasplane": {
+		"body": "ihasplane(${1})",
+		"prefix": "ihasplane",
+		"scope": "source.vex"
+	},
+	"import": {
+		"body": "import(${1})",
+		"prefix": "import",
+		"scope": "source.vex"
+	},
+	"ingroup": {
+		"body": "ingroup(${1})",
+		"prefix": "ingroup",
+		"scope": "source.vex"
+	},
+	"inpointgroup": {
+		"body": "inpointgroup(${1})",
+		"prefix": "inpointgroup",
+		"scope": "source.vex"
+	},
+	"inprimgroup": {
+		"body": "inprimgroup(${1})",
+		"prefix": "inprimgroup",
+		"scope": "source.vex"
+	},
+	"insert": {
+		"body": "insert(${1})",
+		"prefix": "insert",
+		"scope": "source.vex"
+	},
+	"instance": {
+		"body": "instance(${1})",
+		"prefix": "instance",
+		"scope": "source.vex"
+	},
+	"interpolate": {
+		"body": "interpolate(${1})",
+		"prefix": "interpolate",
+		"scope": "source.vex"
+	},
+	"intersect": {
+		"body": "intersect(${1})",
+		"prefix": "intersect",
+		"scope": "source.vex"
+	},
+	"intersect_all": {
+		"body": "intersect_all(${1})",
+		"prefix": "intersect_all",
+		"scope": "source.vex"
+	},
+	"intersect_lights": {
+		"body": "intersect_lights(${1})",
+		"prefix": "intersect_lights",
+		"scope": "source.vex"
+	},
+	"inumplanes": {
+		"body": "inumplanes(${1})",
+		"prefix": "inumplanes",
+		"scope": "source.vex"
+	},
+	"invert": {
+		"body": "invert(${1})",
+		"prefix": "invert",
+		"scope": "source.vex"
+	},
+	"invertexgroup": {
+		"body": "invertexgroup(${1})",
+		"prefix": "invertexgroup",
+		"scope": "source.vex"
+	},
+	"iplaneindex": {
+		"body": "iplaneindex(${1})",
+		"prefix": "iplaneindex",
+		"scope": "source.vex"
+	},
+	"iplanename": {
+		"body": "iplanename(${1})",
+		"prefix": "iplanename",
+		"scope": "source.vex"
+	},
+	"iplanesize": {
+		"body": "iplanesize(${1})",
+		"prefix": "iplanesize",
+		"scope": "source.vex"
+	},
+	"irate": {
+		"body": "irate(${1})",
+		"prefix": "irate",
+		"scope": "source.vex"
+	},
+	"irradiance": {
+		"body": "irradiance(${1})",
+		"prefix": "irradiance",
+		"scope": "source.vex"
+	},
+	"isalpha": {
+		"body": "isalpha(${1})",
+		"prefix": "isalpha",
+		"scope": "source.vex"
+	},
+	"isbound": {
+		"body": "isbound(${1})",
+		"prefix": "isbound",
+		"scope": "source.vex"
+	},
+	"isconnected": {
+		"body": "isconnected(${1})",
+		"prefix": "isconnected",
+		"scope": "source.vex"
+	},
+	"isdigit": {
+		"body": "isdigit(${1})",
+		"prefix": "isdigit",
+		"scope": "source.vex"
+	},
+	"isfinite": {
+		"body": "isfinite(${1})",
+		"prefix": "isfinite",
+		"scope": "source.vex"
+	},
+	"isfogray": {
+		"body": "isfogray(${1})",
+		"prefix": "isfogray",
+		"scope": "source.vex"
+	},
+	"isframes": {
+		"body": "isframes(${1})",
+		"prefix": "isframes",
+		"scope": "source.vex"
+	},
+	"isnan": {
+		"body": "isnan(${1})",
+		"prefix": "isnan",
+		"scope": "source.vex"
+	},
+	"isotropic": {
+		"body": "isotropic(${1})",
+		"prefix": "isotropic",
+		"scope": "source.vex"
+	},
+	"israytracing": {
+		"body": "israytracing(${1})",
+		"prefix": "israytracing",
+		"scope": "source.vex"
+	},
+	"issamples": {
+		"body": "issamples(${1})",
+		"prefix": "issamples",
+		"scope": "source.vex"
+	},
+	"isseconds": {
+		"body": "isseconds(${1})",
+		"prefix": "isseconds",
+		"scope": "source.vex"
+	},
+	"isshadowray": {
+		"body": "isshadowray(${1})",
+		"prefix": "isshadowray",
+		"scope": "source.vex"
+	},
+	"istart": {
+		"body": "istart(${1})",
+		"prefix": "istart",
+		"scope": "source.vex"
+	},
+	"istarttime": {
+		"body": "istarttime(${1})",
+		"prefix": "istarttime",
+		"scope": "source.vex"
+	},
+	"isuvrendering": {
+		"body": "isuvrendering(${1})",
+		"prefix": "isuvrendering",
+		"scope": "source.vex"
+	},
+	"isvalidindex": {
+		"body": "isvalidindex(${1})",
+		"prefix": "isvalidindex",
+		"scope": "source.vex"
+	},
+	"isvarying": {
+		"body": "isvarying(${1})",
+		"prefix": "isvarying",
+		"scope": "source.vex"
+	},
+	"itoa": {
+		"body": "itoa(${1})",
+		"prefix": "itoa",
+		"scope": "source.vex"
+	},
+	"ixres": {
+		"body": "ixres(${1})",
+		"prefix": "ixres",
+		"scope": "source.vex"
+	},
+	"iyres": {
+		"body": "iyres(${1})",
+		"prefix": "iyres",
+		"scope": "source.vex"
+	},
+	"join": {
+		"body": "join(${1})",
+		"prefix": "join",
+		"scope": "source.vex"
+	},
+	"kspline": {
+		"body": "kspline(${1})",
+		"prefix": "kspline",
+		"scope": "source.vex"
+	},
+	"len": {
+		"body": "len(${1})",
+		"prefix": "len",
+		"scope": "source.vex"
+	},
+	"length": {
+		"body": "length(${1})",
+		"prefix": "length",
+		"scope": "source.vex"
+	},
+	"length2": {
+		"body": "length2(${1})",
+		"prefix": "length2",
+		"scope": "source.vex"
+	},
+	"lerp": {
+		"body": "lerp(${1})",
+		"prefix": "lerp",
+		"scope": "source.vex"
+	},
+	"lightid": {
+		"body": "lightid(${1})",
+		"prefix": "lightid",
+		"scope": "source.vex"
+	},
+	"limit_sample_space": {
+		"body": "limit_sample_space(${1})",
+		"prefix": "limit_sample_space",
+		"scope": "source.vex"
+	},
+	"limport": {
+		"body": "limport(${1})",
+		"prefix": "limport",
+		"scope": "source.vex"
+	},
+	"lkspline": {
+		"body": "lkspline(${1})",
+		"prefix": "lkspline",
+		"scope": "source.vex"
+	},
+	"log": {
+		"body": "log(${1})",
+		"prefix": "log",
+		"scope": "source.vex"
+	},
+	"log10": {
+		"body": "log10(${1})",
+		"prefix": "log10",
+		"scope": "source.vex"
+	},
+	"lookat": {
+		"body": "lookat(${1})",
+		"prefix": "lookat",
+		"scope": "source.vex"
+	},
+	"lspline": {
+		"body": "lspline(${1})",
+		"prefix": "lspline",
+		"scope": "source.vex"
+	},
+	"lstrip": {
+		"body": "lstrip(${1})",
+		"prefix": "lstrip",
+		"scope": "source.vex"
+	},
+	"luminance": {
+		"body": "luminance(${1})",
+		"prefix": "luminance",
+		"scope": "source.vex"
+	},
+	"lumname": {
+		"body": "lumname(${1})",
+		"prefix": "lumname",
+		"scope": "source.vex"
+	},
+	"makebasis": {
+		"body": "makebasis(${1})",
+		"prefix": "makebasis",
+		"scope": "source.vex"
+	},
+	"maketransform": {
+		"body": "maketransform(${1})",
+		"prefix": "maketransform",
+		"scope": "source.vex"
+	},
+	"maskname": {
+		"body": "maskname(${1})",
+		"prefix": "maskname",
+		"scope": "source.vex"
+	},
+	"match": {
+		"body": "match(${1})",
+		"prefix": "match",
+		"scope": "source.vex"
+	},
+	"matchvex_blinn": {
+		"body": "matchvex_blinn(${1})",
+		"prefix": "matchvex_blinn",
+		"scope": "source.vex"
+	},
+	"matchvex_specular": {
+		"body": "matchvex_specular(${1})",
+		"prefix": "matchvex_specular",
+		"scope": "source.vex"
+	},
+	"mattrib": {
+		"body": "mattrib(${1})",
+		"prefix": "mattrib",
+		"scope": "source.vex"
+	},
+	"max": {
+		"body": "max(${1})",
+		"prefix": "max",
+		"scope": "source.vex"
+	},
+	"mdensity": {
+		"body": "mdensity(${1})",
+		"prefix": "mdensity",
+		"scope": "source.vex"
+	},
+	"metaimport": {
+		"body": "metaimport(${1})",
+		"prefix": "metaimport",
+		"scope": "source.vex"
+	},
+	"metamarch": {
+		"body": "metamarch(${1})",
+		"prefix": "metamarch",
+		"scope": "source.vex"
+	},
+	"metanext": {
+		"body": "metanext(${1})",
+		"prefix": "metanext",
+		"scope": "source.vex"
+	},
+	"metastart": {
+		"body": "metastart(${1})",
+		"prefix": "metastart",
+		"scope": "source.vex"
+	},
+	"metaweight": {
+		"body": "metaweight(${1})",
+		"prefix": "metaweight",
+		"scope": "source.vex"
+	},
+	"min": {
+		"body": "min(${1})",
+		"prefix": "min",
+		"scope": "source.vex"
+	},
+	"minpos": {
+		"body": "minpos(${1})",
+		"prefix": "minpos",
+		"scope": "source.vex"
+	},
+	"mspace": {
+		"body": "mspace(${1})",
+		"prefix": "mspace",
+		"scope": "source.vex"
+	},
+	"nametopoint": {
+		"body": "nametopoint(${1})",
+		"prefix": "nametopoint",
+		"scope": "source.vex"
+	},
+	"nametoprim": {
+		"body": "nametoprim(${1})",
+		"prefix": "nametoprim",
+		"scope": "source.vex"
+	},
+	"nbouncetypes": {
+		"body": "nbouncetypes(${1})",
+		"prefix": "nbouncetypes",
+		"scope": "source.vex"
+	},
+	"nearpoint": {
+		"body": "nearpoint(${1})",
+		"prefix": "nearpoint",
+		"scope": "source.vex"
+	},
+	"nearpoints": {
+		"body": "nearpoints(${1})",
+		"prefix": "nearpoints",
+		"scope": "source.vex"
+	},
+	"neighbour": {
+		"body": "neighbour(${1})",
+		"prefix": "neighbour",
+		"scope": "source.vex"
+	},
+	"neighbourcount": {
+		"body": "neighbourcount(${1})",
+		"prefix": "neighbourcount",
+		"scope": "source.vex"
+	},
+	"neighbours": {
+		"body": "neighbours(${1})",
+		"prefix": "neighbours",
+		"scope": "source.vex"
+	},
+	"newgroup": {
+		"body": "newgroup(${1})",
+		"prefix": "newgroup",
+		"scope": "source.vex"
+	},
+	"newsampler": {
+		"body": "newsampler(${1})",
+		"prefix": "newsampler",
+		"scope": "source.vex"
+	},
+	"nextsample": {
+		"body": "nextsample(${1})",
+		"prefix": "nextsample",
+		"scope": "source.vex"
+	},
+	"ninput": {
+		"body": "ninput(${1})",
+		"prefix": "ninput",
+		"scope": "source.vex"
+	},
+	"noise": {
+		"body": "noise(${1})",
+		"prefix": "noise",
+		"scope": "source.vex"
+	},
+	"noised": {
+		"body": "noised(${1})",
+		"prefix": "noised",
+		"scope": "source.vex"
+	},
+	"normal_bsdf": {
+		"body": "normal_bsdf(${1})",
+		"prefix": "normal_bsdf",
+		"scope": "source.vex"
+	},
+	"normalize": {
+		"body": "normalize(${1})",
+		"prefix": "normalize",
+		"scope": "source.vex"
+	},
+	"normalname": {
+		"body": "normalname(${1})",
+		"prefix": "normalname",
+		"scope": "source.vex"
+	},
+	"npoints": {
+		"body": "npoints(${1})",
+		"prefix": "npoints",
+		"scope": "source.vex"
+	},
+	"npointsgroup": {
+		"body": "npointsgroup(${1})",
+		"prefix": "npointsgroup",
+		"scope": "source.vex"
+	},
+	"nprimitives": {
+		"body": "nprimitives(${1})",
+		"prefix": "nprimitives",
+		"scope": "source.vex"
+	},
+	"nprimitivesgroup": {
+		"body": "nprimitivesgroup(${1})",
+		"prefix": "nprimitivesgroup",
+		"scope": "source.vex"
+	},
+	"nrandom": {
+		"body": "nrandom(${1})",
+		"prefix": "nrandom",
+		"scope": "source.vex"
+	},
+	"ntransform": {
+		"body": "ntransform(${1})",
+		"prefix": "ntransform",
+		"scope": "source.vex"
+	},
+	"nuniqueval": {
+		"body": "nuniqueval(${1})",
+		"prefix": "nuniqueval",
+		"scope": "source.vex"
+	},
+	"nvertices": {
+		"body": "nvertices(${1})",
+		"prefix": "nvertices",
+		"scope": "source.vex"
+	},
+	"nverticesgroup": {
+		"body": "nverticesgroup(${1})",
+		"prefix": "nverticesgroup",
+		"scope": "source.vex"
+	},
+	"occlusion": {
+		"body": "occlusion(${1})",
+		"prefix": "occlusion",
+		"scope": "source.vex"
+	},
+	"onoise": {
+		"body": "onoise(${1})",
+		"prefix": "onoise",
+		"scope": "source.vex"
+	},
+	"opdigits": {
+		"body": "opdigits(${1})",
+		"prefix": "opdigits",
+		"scope": "source.vex"
+	},
+	"opend": {
+		"body": "opend(${1})",
+		"prefix": "opend",
+		"scope": "source.vex"
+	},
+	"opfullpath": {
+		"body": "opfullpath(${1})",
+		"prefix": "opfullpath",
+		"scope": "source.vex"
+	},
+	"opstart": {
+		"body": "opstart(${1})",
+		"prefix": "opstart",
+		"scope": "source.vex"
+	},
+	"optransform": {
+		"body": "optransform(${1})",
+		"prefix": "optransform",
+		"scope": "source.vex"
+	},
+	"ord": {
+		"body": "ord(${1})",
+		"prefix": "ord",
+		"scope": "source.vex"
+	},
+	"osd_facecount": {
+		"body": "osd_facecount(${1})",
+		"prefix": "osd_facecount",
+		"scope": "source.vex"
+	},
+	"osd_firstpatch": {
+		"body": "osd_firstpatch(${1})",
+		"prefix": "osd_firstpatch",
+		"scope": "source.vex"
+	},
+	"osd_limitsurface": {
+		"body": "osd_limitsurface(${1})",
+		"prefix": "osd_limitsurface",
+		"scope": "source.vex"
+	},
+	"osd_limitsurfacevertex": {
+		"body": "osd_limitsurfacevertex(${1})",
+		"prefix": "osd_limitsurfacevertex",
+		"scope": "source.vex"
+	},
+	"osd_patchcount": {
+		"body": "osd_patchcount(${1})",
+		"prefix": "osd_patchcount",
+		"scope": "source.vex"
+	},
+	"osd_patches": {
+		"body": "osd_patches(${1})",
+		"prefix": "osd_patches",
+		"scope": "source.vex"
+	},
+	"outerproduct": {
+		"body": "outerproduct(${1})",
+		"prefix": "outerproduct",
+		"scope": "source.vex"
+	},
+	"ow_nspace": {
+		"body": "ow_nspace(${1})",
+		"prefix": "ow_nspace",
+		"scope": "source.vex"
+	},
+	"ow_space": {
+		"body": "ow_space(${1})",
+		"prefix": "ow_space",
+		"scope": "source.vex"
+	},
+	"ow_vspace": {
+		"body": "ow_vspace(${1})",
+		"prefix": "ow_vspace",
+		"scope": "source.vex"
+	},
+	"pack_inttosafefloat": {
+		"body": "pack_inttosafefloat(${1})",
+		"prefix": "pack_inttosafefloat",
+		"scope": "source.vex"
+	},
+	"pathtrace": {
+		"body": "pathtrace(${1})",
+		"prefix": "pathtrace",
+		"scope": "source.vex"
+	},
+	"pcclose": {
+		"body": "pcclose(${1})",
+		"prefix": "pcclose",
+		"scope": "source.vex"
+	},
+	"pcconvex": {
+		"body": "pcconvex(${1})",
+		"prefix": "pcconvex",
+		"scope": "source.vex"
+	},
+	"pcexport": {
+		"body": "pcexport(${1})",
+		"prefix": "pcexport",
+		"scope": "source.vex"
+	},
+	"pcfarthest": {
+		"body": "pcfarthest(${1})",
+		"prefix": "pcfarthest",
+		"scope": "source.vex"
+	},
+	"pcfilter": {
+		"body": "pcfilter(${1})",
+		"prefix": "pcfilter",
+		"scope": "source.vex"
+	},
+	"pcfind": {
+		"body": "pcfind(${1})",
+		"prefix": "pcfind",
+		"scope": "source.vex"
+	},
+	"pcfind_radius": {
+		"body": "pcfind_radius(${1})",
+		"prefix": "pcfind_radius",
+		"scope": "source.vex"
+	},
+	"pcgenerate": {
+		"body": "pcgenerate(${1})",
+		"prefix": "pcgenerate",
+		"scope": "source.vex"
+	},
+	"pcimport": {
+		"body": "pcimport(${1})",
+		"prefix": "pcimport",
+		"scope": "source.vex"
+	},
+	"pcimportbyidx3": {
+		"body": "pcimportbyidx3(${1})",
+		"prefix": "pcimportbyidx3",
+		"scope": "source.vex"
+	},
+	"pcimportbyidx4": {
+		"body": "pcimportbyidx4(${1})",
+		"prefix": "pcimportbyidx4",
+		"scope": "source.vex"
+	},
+	"pcimportbyidxf": {
+		"body": "pcimportbyidxf(${1})",
+		"prefix": "pcimportbyidxf",
+		"scope": "source.vex"
+	},
+	"pcimportbyidxi": {
+		"body": "pcimportbyidxi(${1})",
+		"prefix": "pcimportbyidxi",
+		"scope": "source.vex"
+	},
+	"pcimportbyidxp": {
+		"body": "pcimportbyidxp(${1})",
+		"prefix": "pcimportbyidxp",
+		"scope": "source.vex"
+	},
+	"pcimportbyidxs": {
+		"body": "pcimportbyidxs(${1})",
+		"prefix": "pcimportbyidxs",
+		"scope": "source.vex"
+	},
+	"pcimportbyidxv": {
+		"body": "pcimportbyidxv(${1})",
+		"prefix": "pcimportbyidxv",
+		"scope": "source.vex"
+	},
+	"pciterate": {
+		"body": "pciterate(${1})",
+		"prefix": "pciterate",
+		"scope": "source.vex"
+	},
+	"pcnumfound": {
+		"body": "pcnumfound(${1})",
+		"prefix": "pcnumfound",
+		"scope": "source.vex"
+	},
+	"pcopen": {
+		"body": "pcopen(${1})",
+		"prefix": "pcopen",
+		"scope": "source.vex"
+	},
+	"pcopenlod": {
+		"body": "pcopenlod(${1})",
+		"prefix": "pcopenlod",
+		"scope": "source.vex"
+	},
+	"pcsampleleaf": {
+		"body": "pcsampleleaf(${1})",
+		"prefix": "pcsampleleaf",
+		"scope": "source.vex"
+	},
+	"pcsize": {
+		"body": "pcsize(${1})",
+		"prefix": "pcsize",
+		"scope": "source.vex"
+	},
+	"pcunshaded": {
+		"body": "pcunshaded(${1})",
+		"prefix": "pcunshaded",
+		"scope": "source.vex"
+	},
+	"pcwrite": {
+		"body": "pcwrite(${1})",
+		"prefix": "pcwrite",
+		"scope": "source.vex"
+	},
+	"pgfind": {
+		"body": "pgfind(${1})",
+		"prefix": "pgfind",
+		"scope": "source.vex"
+	},
+	"phong": {
+		"body": "phong(${1})",
+		"prefix": "phong",
+		"scope": "source.vex"
+	},
+	"phongBRDF": {
+		"body": "phongBRDF(${1})",
+		"prefix": "phongBRDF",
+		"scope": "source.vex"
+	},
+	"phonglobe": {
+		"body": "phonglobe(${1})",
+		"prefix": "phonglobe",
+		"scope": "source.vex"
+	},
+	"photonmap": {
+		"body": "photonmap(${1})",
+		"prefix": "photonmap",
+		"scope": "source.vex"
+	},
+	"planeindex": {
+		"body": "planeindex(${1})",
+		"prefix": "planeindex",
+		"scope": "source.vex"
+	},
+	"planename": {
+		"body": "planename(${1})",
+		"prefix": "planename",
+		"scope": "source.vex"
+	},
+	"planesize": {
+		"body": "planesize(${1})",
+		"prefix": "planesize",
+		"scope": "source.vex"
+	},
+	"pluralize": {
+		"body": "pluralize(${1})",
+		"prefix": "pluralize",
+		"scope": "source.vex"
+	},
+	"pnoise": {
+		"body": "pnoise(${1})",
+		"prefix": "pnoise",
+		"scope": "source.vex"
+	},
+	"point": {
+		"body": "point(${1})",
+		"prefix": "point",
+		"scope": "source.vex"
+	},
+	"pointattrib": {
+		"body": "pointattrib(${1})",
+		"prefix": "pointattrib",
+		"scope": "source.vex"
+	},
+	"pointattribsize": {
+		"body": "pointattribsize(${1})",
+		"prefix": "pointattribsize",
+		"scope": "source.vex"
+	},
+	"pointattribtype": {
+		"body": "pointattribtype(${1})",
+		"prefix": "pointattribtype",
+		"scope": "source.vex"
+	},
+	"pointattribtypeinfo": {
+		"body": "pointattribtypeinfo(${1})",
+		"prefix": "pointattribtypeinfo",
+		"scope": "source.vex"
+	},
+	"pointedge": {
+		"body": "pointedge(${1})",
+		"prefix": "pointedge",
+		"scope": "source.vex"
+	},
+	"pointhedge": {
+		"body": "pointhedge(${1})",
+		"prefix": "pointhedge",
+		"scope": "source.vex"
+	},
+	"pointhedgenext": {
+		"body": "pointhedgenext(${1})",
+		"prefix": "pointhedgenext",
+		"scope": "source.vex"
+	},
+	"pointname": {
+		"body": "pointname(${1})",
+		"prefix": "pointname",
+		"scope": "source.vex"
+	},
+	"pointprims": {
+		"body": "pointprims(${1})",
+		"prefix": "pointprims",
+		"scope": "source.vex"
+	},
+	"pointvertex": {
+		"body": "pointvertex(${1})",
+		"prefix": "pointvertex",
+		"scope": "source.vex"
+	},
+	"pointvertices": {
+		"body": "pointvertices(${1})",
+		"prefix": "pointvertices",
+		"scope": "source.vex"
+	},
+	"polardecomp": {
+		"body": "polardecomp(${1})",
+		"prefix": "polardecomp",
+		"scope": "source.vex"
+	},
+	"pop": {
+		"body": "pop(${1})",
+		"prefix": "pop",
+		"scope": "source.vex"
+	},
+	"pow": {
+		"body": "pow(${1})",
+		"prefix": "pow",
+		"scope": "source.vex"
+	},
+	"prim": {
+		"body": "prim(${1})",
+		"prefix": "prim",
+		"scope": "source.vex"
+	},
+	"prim_attribute": {
+		"body": "prim_attribute(${1})",
+		"prefix": "prim_attribute",
+		"scope": "source.vex"
+	},
+	"prim_normal": {
+		"body": "prim_normal(${1})",
+		"prefix": "prim_normal",
+		"scope": "source.vex"
+	},
+	"primattrib": {
+		"body": "primattrib(${1})",
+		"prefix": "primattrib",
+		"scope": "source.vex"
+	},
+	"primattribsize": {
+		"body": "primattribsize(${1})",
+		"prefix": "primattribsize",
+		"scope": "source.vex"
+	},
+	"primattribtype": {
+		"body": "primattribtype(${1})",
+		"prefix": "primattribtype",
+		"scope": "source.vex"
+	},
+	"primattribtypeinfo": {
+		"body": "primattribtypeinfo(${1})",
+		"prefix": "primattribtypeinfo",
+		"scope": "source.vex"
+	},
+	"primhedge": {
+		"body": "primhedge(${1})",
+		"prefix": "primhedge",
+		"scope": "source.vex"
+	},
+	"primintrinsic": {
+		"body": "primintrinsic(${1})",
+		"prefix": "primintrinsic",
+		"scope": "source.vex"
+	},
+	"primpoint": {
+		"body": "primpoint(${1})",
+		"prefix": "primpoint",
+		"scope": "source.vex"
+	},
+	"primpoints": {
+		"body": "primpoints(${1})",
+		"prefix": "primpoints",
+		"scope": "source.vex"
+	},
+	"primuv": {
+		"body": "primuv(${1})",
+		"prefix": "primuv",
+		"scope": "source.vex"
+	},
+	"primvertex": {
+		"body": "primvertex(${1})",
+		"prefix": "primvertex",
+		"scope": "source.vex"
+	},
+	"primvertexcount": {
+		"body": "primvertexcount(${1})",
+		"prefix": "primvertexcount",
+		"scope": "source.vex"
+	},
+	"primvertices": {
+		"body": "primvertices(${1})",
+		"prefix": "primvertices",
+		"scope": "source.vex"
+	},
+	"print_once": {
+		"body": "print_once(${1})",
+		"prefix": "print_once",
+		"scope": "source.vex"
+	},
+	"printf": {
+		"body": "printf(${1})",
+		"prefix": "printf",
+		"scope": "source.vex"
+	},
+	"product": {
+		"body": "product(${1})",
+		"prefix": "product",
+		"scope": "source.vex"
+	},
+	"ptexture": {
+		"body": "ptexture(${1})",
+		"prefix": "ptexture",
+		"scope": "source.vex"
+	},
+	"ptlined": {
+		"body": "ptlined(${1})",
+		"prefix": "ptlined",
+		"scope": "source.vex"
+	},
+	"ptransform": {
+		"body": "ptransform(${1})",
+		"prefix": "ptransform",
+		"scope": "source.vex"
+	},
+	"push": {
+		"body": "push(${1})",
+		"prefix": "push",
+		"scope": "source.vex"
+	},
+	"qconvert": {
+		"body": "qconvert(${1})",
+		"prefix": "qconvert",
+		"scope": "source.vex"
+	},
+	"qdistance": {
+		"body": "qdistance(${1})",
+		"prefix": "qdistance",
+		"scope": "source.vex"
+	},
+	"qinvert": {
+		"body": "qinvert(${1})",
+		"prefix": "qinvert",
+		"scope": "source.vex"
+	},
+	"qmultiply": {
+		"body": "qmultiply(${1})",
+		"prefix": "qmultiply",
+		"scope": "source.vex"
+	},
+	"qrotate": {
+		"body": "qrotate(${1})",
+		"prefix": "qrotate",
+		"scope": "source.vex"
+	},
+	"quaternion": {
+		"body": "quaternion(${1})",
+		"prefix": "quaternion",
+		"scope": "source.vex"
+	},
+	"radians": {
+		"body": "radians(${1})",
+		"prefix": "radians",
+		"scope": "source.vex"
+	},
+	"rand": {
+		"body": "rand(${1})",
+		"prefix": "rand",
+		"scope": "source.vex"
+	},
+	"random": {
+		"body": "random(${1})",
+		"prefix": "random",
+		"scope": "source.vex"
+	},
+	"random_fhash": {
+		"body": "random_fhash(${1})",
+		"prefix": "random_fhash",
+		"scope": "source.vex"
+	},
+	"random_ihash": {
+		"body": "random_ihash(${1})",
+		"prefix": "random_ihash",
+		"scope": "source.vex"
+	},
+	"random_shash": {
+		"body": "random_shash(${1})",
+		"prefix": "random_shash",
+		"scope": "source.vex"
+	},
+	"random_sobol": {
+		"body": "random_sobol(${1})",
+		"prefix": "random_sobol",
+		"scope": "source.vex"
+	},
+	"rawbumpmap": {
+		"body": "rawbumpmap(${1})",
+		"prefix": "rawbumpmap",
+		"scope": "source.vex"
+	},
+	"rawbumpmapA": {
+		"body": "rawbumpmapA(${1})",
+		"prefix": "rawbumpmapA",
+		"scope": "source.vex"
+	},
+	"rawbumpmapB": {
+		"body": "rawbumpmapB(${1})",
+		"prefix": "rawbumpmapB",
+		"scope": "source.vex"
+	},
+	"rawbumpmapG": {
+		"body": "rawbumpmapG(${1})",
+		"prefix": "rawbumpmapG",
+		"scope": "source.vex"
+	},
+	"rawbumpmapL": {
+		"body": "rawbumpmapL(${1})",
+		"prefix": "rawbumpmapL",
+		"scope": "source.vex"
+	},
+	"rawbumpmapR": {
+		"body": "rawbumpmapR(${1})",
+		"prefix": "rawbumpmapR",
+		"scope": "source.vex"
+	},
+	"rawcolormap": {
+		"body": "rawcolormap(${1})",
+		"prefix": "rawcolormap",
+		"scope": "source.vex"
+	},
+	"rayhittest": {
+		"body": "rayhittest(${1})",
+		"prefix": "rayhittest",
+		"scope": "source.vex"
+	},
+	"rayimport": {
+		"body": "rayimport(${1})",
+		"prefix": "rayimport",
+		"scope": "source.vex"
+	},
+	"re_find": {
+		"body": "re_find(${1})",
+		"prefix": "re_find",
+		"scope": "source.vex"
+	},
+	"re_findall": {
+		"body": "re_findall(${1})",
+		"prefix": "re_findall",
+		"scope": "source.vex"
+	},
+	"re_match": {
+		"body": "re_match(${1})",
+		"prefix": "re_match",
+		"scope": "source.vex"
+	},
+	"re_replace": {
+		"body": "re_replace(${1})",
+		"prefix": "re_replace",
+		"scope": "source.vex"
+	},
+	"re_split": {
+		"body": "re_split(${1})",
+		"prefix": "re_split",
+		"scope": "source.vex"
+	},
+	"reflect": {
+		"body": "reflect(${1})",
+		"prefix": "reflect",
+		"scope": "source.vex"
+	},
+	"reflectlight": {
+		"body": "reflectlight(${1})",
+		"prefix": "reflectlight",
+		"scope": "source.vex"
+	},
+	"refract": {
+		"body": "refract(${1})",
+		"prefix": "refract",
+		"scope": "source.vex"
+	},
+	"refractlight": {
+		"body": "refractlight(${1})",
+		"prefix": "refractlight",
+		"scope": "source.vex"
+	},
+	"relativepath": {
+		"body": "relativepath(${1})",
+		"prefix": "relativepath",
+		"scope": "source.vex"
+	},
+	"relbbox": {
+		"body": "relbbox(${1})",
+		"prefix": "relbbox",
+		"scope": "source.vex"
+	},
+	"relpointbbox": {
+		"body": "relpointbbox(${1})",
+		"prefix": "relpointbbox",
+		"scope": "source.vex"
+	},
+	"removegroup": {
+		"body": "removegroup(${1})",
+		"prefix": "removegroup",
+		"scope": "source.vex"
+	},
+	"removeindex": {
+		"body": "removeindex(${1})",
+		"prefix": "removeindex",
+		"scope": "source.vex"
+	},
+	"removepoint": {
+		"body": "removepoint(${1})",
+		"prefix": "removepoint",
+		"scope": "source.vex"
+	},
+	"removeprim": {
+		"body": "removeprim(${1})",
+		"prefix": "removeprim",
+		"scope": "source.vex"
+	},
+	"removevalue": {
+		"body": "removevalue(${1})",
+		"prefix": "removevalue",
+		"scope": "source.vex"
+	},
+	"renderstate": {
+		"body": "renderstate(${1})",
+		"prefix": "renderstate",
+		"scope": "source.vex"
+	},
+	"reorder": {
+		"body": "reorder(${1})",
+		"prefix": "reorder",
+		"scope": "source.vex"
+	},
+	"resample_linear": {
+		"body": "resample_linear(${1})",
+		"prefix": "resample_linear",
+		"scope": "source.vex"
+	},
+	"resize": {
+		"body": "resize(${1})",
+		"prefix": "resize",
+		"scope": "source.vex"
+	},
+	"resolvemissedray": {
+		"body": "resolvemissedray(${1})",
+		"prefix": "resolvemissedray",
+		"scope": "source.vex"
+	},
+	"reverse": {
+		"body": "reverse(${1})",
+		"prefix": "reverse",
+		"scope": "source.vex"
+	},
+	"rgbtohsv": {
+		"body": "rgbtohsv(${1})",
+		"prefix": "rgbtohsv",
+		"scope": "source.vex"
+	},
+	"rgbtoxyz": {
+		"body": "rgbtoxyz(${1})",
+		"prefix": "rgbtoxyz",
+		"scope": "source.vex"
+	},
+	"rint": {
+		"body": "rint(${1})",
+		"prefix": "rint",
+		"scope": "source.vex"
+	},
+	"rotate": {
+		"body": "rotate(${1})",
+		"prefix": "rotate",
+		"scope": "source.vex"
+	},
+	"rotate_x_to": {
+		"body": "rotate_x_to(${1})",
+		"prefix": "rotate_x_to",
+		"scope": "source.vex"
+	},
+	"rstrip": {
+		"body": "rstrip(${1})",
+		"prefix": "rstrip",
+		"scope": "source.vex"
+	},
+	"sample_bsdf": {
+		"body": "sample_bsdf(${1})",
+		"prefix": "sample_bsdf",
+		"scope": "source.vex"
+	},
+	"sample_cauchy": {
+		"body": "sample_cauchy(${1})",
+		"prefix": "sample_cauchy",
+		"scope": "source.vex"
+	},
+	"sample_circle_arc": {
+		"body": "sample_circle_arc(${1})",
+		"prefix": "sample_circle_arc",
+		"scope": "source.vex"
+	},
+	"sample_circle_edge_uniform": {
+		"body": "sample_circle_edge_uniform(${1})",
+		"prefix": "sample_circle_edge_uniform",
+		"scope": "source.vex"
+	},
+	"sample_circle_slice": {
+		"body": "sample_circle_slice(${1})",
+		"prefix": "sample_circle_slice",
+		"scope": "source.vex"
+	},
+	"sample_circle_uniform": {
+		"body": "sample_circle_uniform(${1})",
+		"prefix": "sample_circle_uniform",
+		"scope": "source.vex"
+	},
+	"sample_direction_cone": {
+		"body": "sample_direction_cone(${1})",
+		"prefix": "sample_direction_cone",
+		"scope": "source.vex"
+	},
+	"sample_direction_uniform": {
+		"body": "sample_direction_uniform(${1})",
+		"prefix": "sample_direction_uniform",
+		"scope": "source.vex"
+	},
+	"sample_discrete": {
+		"body": "sample_discrete(${1})",
+		"prefix": "sample_discrete",
+		"scope": "source.vex"
+	},
+	"sample_exponential": {
+		"body": "sample_exponential(${1})",
+		"prefix": "sample_exponential",
+		"scope": "source.vex"
+	},
+	"sample_geometry": {
+		"body": "sample_geometry(${1})",
+		"prefix": "sample_geometry",
+		"scope": "source.vex"
+	},
+	"sample_hemisphere": {
+		"body": "sample_hemisphere(${1})",
+		"prefix": "sample_hemisphere",
+		"scope": "source.vex"
+	},
+	"sample_hypersphere_cone": {
+		"body": "sample_hypersphere_cone(${1})",
+		"prefix": "sample_hypersphere_cone",
+		"scope": "source.vex"
+	},
+	"sample_hypersphere_uniform": {
+		"body": "sample_hypersphere_uniform(${1})",
+		"prefix": "sample_hypersphere_uniform",
+		"scope": "source.vex"
+	},
+	"sample_light": {
+		"body": "sample_light(${1})",
+		"prefix": "sample_light",
+		"scope": "source.vex"
+	},
+	"sample_lognormal": {
+		"body": "sample_lognormal(${1})",
+		"prefix": "sample_lognormal",
+		"scope": "source.vex"
+	},
+	"sample_lognormal_by_median": {
+		"body": "sample_lognormal_by_median(${1})",
+		"prefix": "sample_lognormal_by_median",
+		"scope": "source.vex"
+	},
+	"sample_normal": {
+		"body": "sample_normal(${1})",
+		"prefix": "sample_normal",
+		"scope": "source.vex"
+	},
+	"sample_orientation_cone": {
+		"body": "sample_orientation_cone(${1})",
+		"prefix": "sample_orientation_cone",
+		"scope": "source.vex"
+	},
+	"sample_orientation_uniform": {
+		"body": "sample_orientation_uniform(${1})",
+		"prefix": "sample_orientation_uniform",
+		"scope": "source.vex"
+	},
+	"sample_photon": {
+		"body": "sample_photon(${1})",
+		"prefix": "sample_photon",
+		"scope": "source.vex"
+	},
+	"sample_sphere_cone": {
+		"body": "sample_sphere_cone(${1})",
+		"prefix": "sample_sphere_cone",
+		"scope": "source.vex"
+	},
+	"sample_sphere_uniform": {
+		"body": "sample_sphere_uniform(${1})",
+		"prefix": "sample_sphere_uniform",
+		"scope": "source.vex"
+	},
+	"sampledisk": {
+		"body": "sampledisk(${1})",
+		"prefix": "sampledisk",
+		"scope": "source.vex"
+	},
+	"scale": {
+		"body": "scale(${1})",
+		"prefix": "scale",
+		"scope": "source.vex"
+	},
+	"select": {
+		"body": "select(${1})",
+		"prefix": "select",
+		"scope": "source.vex"
+	},
+	"sensor_panorama_create": {
+		"body": "sensor_panorama_create(${1})",
+		"prefix": "sensor_panorama_create",
+		"scope": "source.vex"
+	},
+	"sensor_panorama_getcolor": {
+		"body": "sensor_panorama_getcolor(${1})",
+		"prefix": "sensor_panorama_getcolor",
+		"scope": "source.vex"
+	},
+	"sensor_panorama_getcone": {
+		"body": "sensor_panorama_getcone(${1})",
+		"prefix": "sensor_panorama_getcone",
+		"scope": "source.vex"
+	},
+	"sensor_panorama_getdepth": {
+		"body": "sensor_panorama_getdepth(${1})",
+		"prefix": "sensor_panorama_getdepth",
+		"scope": "source.vex"
+	},
+	"sensor_save": {
+		"body": "sensor_save(${1})",
+		"prefix": "sensor_save",
+		"scope": "source.vex"
+	},
+	"serialize": {
+		"body": "serialize(${1})",
+		"prefix": "serialize",
+		"scope": "source.vex"
+	},
+	"set": {
+		"body": "set(${1})",
+		"prefix": "set",
+		"scope": "source.vex"
+	},
+	"setagentclipnames": {
+		"body": "setagentclipnames(${1})",
+		"prefix": "setagentclipnames",
+		"scope": "source.vex"
+	},
+	"setagentcliptimes": {
+		"body": "setagentcliptimes(${1})",
+		"prefix": "setagentcliptimes",
+		"scope": "source.vex"
+	},
+	"setagentclipweights": {
+		"body": "setagentclipweights(${1})",
+		"prefix": "setagentclipweights",
+		"scope": "source.vex"
+	},
+	"setagentcollisionlayer": {
+		"body": "setagentcollisionlayer(${1})",
+		"prefix": "setagentcollisionlayer",
+		"scope": "source.vex"
+	},
+	"setagentcurrentlayer": {
+		"body": "setagentcurrentlayer(${1})",
+		"prefix": "setagentcurrentlayer",
+		"scope": "source.vex"
+	},
+	"setagentlocaltransform": {
+		"body": "setagentlocaltransform(${1})",
+		"prefix": "setagentlocaltransform",
+		"scope": "source.vex"
+	},
+	"setagentlocaltransforms": {
+		"body": "setagentlocaltransforms(${1})",
+		"prefix": "setagentlocaltransforms",
+		"scope": "source.vex"
+	},
+	"setagentworldtransform": {
+		"body": "setagentworldtransform(${1})",
+		"prefix": "setagentworldtransform",
+		"scope": "source.vex"
+	},
+	"setagentworldtransforms": {
+		"body": "setagentworldtransforms(${1})",
+		"prefix": "setagentworldtransforms",
+		"scope": "source.vex"
+	},
+	"setattrib": {
+		"body": "setattrib(${1})",
+		"prefix": "setattrib",
+		"scope": "source.vex"
+	},
+	"setattribtypeinfo": {
+		"body": "setattribtypeinfo(${1})",
+		"prefix": "setattribtypeinfo",
+		"scope": "source.vex"
+	},
+	"setcomp": {
+		"body": "setcomp(${1})",
+		"prefix": "setcomp",
+		"scope": "source.vex"
+	},
+	"setcurrentlight": {
+		"body": "setcurrentlight(${1})",
+		"prefix": "setcurrentlight",
+		"scope": "source.vex"
+	},
+	"setdetailattrib": {
+		"body": "setdetailattrib(${1})",
+		"prefix": "setdetailattrib",
+		"scope": "source.vex"
+	},
+	"setpointattrib": {
+		"body": "setpointattrib(${1})",
+		"prefix": "setpointattrib",
+		"scope": "source.vex"
+	},
+	"setpointgroup": {
+		"body": "setpointgroup(${1})",
+		"prefix": "setpointgroup",
+		"scope": "source.vex"
+	},
+	"setprimattrib": {
+		"body": "setprimattrib(${1})",
+		"prefix": "setprimattrib",
+		"scope": "source.vex"
+	},
+	"setprimgroup": {
+		"body": "setprimgroup(${1})",
+		"prefix": "setprimgroup",
+		"scope": "source.vex"
+	},
+	"setprimintrinsic": {
+		"body": "setprimintrinsic(${1})",
+		"prefix": "setprimintrinsic",
+		"scope": "source.vex"
+	},
+	"setprimvertex": {
+		"body": "setprimvertex(${1})",
+		"prefix": "setprimvertex",
+		"scope": "source.vex"
+	},
+	"setsamplestore": {
+		"body": "setsamplestore(${1})",
+		"prefix": "setsamplestore",
+		"scope": "source.vex"
+	},
+	"setvertexattrib": {
+		"body": "setvertexattrib(${1})",
+		"prefix": "setvertexattrib",
+		"scope": "source.vex"
+	},
+	"setvertexgroup": {
+		"body": "setvertexgroup(${1})",
+		"prefix": "setvertexgroup",
+		"scope": "source.vex"
+	},
+	"setvertexpoint": {
+		"body": "setvertexpoint(${1})",
+		"prefix": "setvertexpoint",
+		"scope": "source.vex"
+	},
+	"shadow": {
+		"body": "shadow(${1})",
+		"prefix": "shadow",
+		"scope": "source.vex"
+	},
+	"shadow_light": {
+		"body": "shadow_light(${1})",
+		"prefix": "shadow_light",
+		"scope": "source.vex"
+	},
+	"shadowmap": {
+		"body": "shadowmap(${1})",
+		"prefix": "shadowmap",
+		"scope": "source.vex"
+	},
+	"shimport": {
+		"body": "shimport(${1})",
+		"prefix": "shimport",
+		"scope": "source.vex"
+	},
+	"shl": {
+		"body": "shl(${1})",
+		"prefix": "shl",
+		"scope": "source.vex"
+	},
+	"shr": {
+		"body": "shr(${1})",
+		"prefix": "shr",
+		"scope": "source.vex"
+	},
+	"shrz": {
+		"body": "shrz(${1})",
+		"prefix": "shrz",
+		"scope": "source.vex"
+	},
+	"sign": {
+		"body": "sign(${1})",
+		"prefix": "sign",
+		"scope": "source.vex"
+	},
+	"simport": {
+		"body": "simport(${1})",
+		"prefix": "simport",
+		"scope": "source.vex"
+	},
+	"sin": {
+		"body": "sin(${1})",
+		"prefix": "sin",
+		"scope": "source.vex"
+	},
+	"sinh": {
+		"body": "sinh(${1})",
+		"prefix": "sinh",
+		"scope": "source.vex"
+	},
+	"sleep": {
+		"body": "sleep(${1})",
+		"prefix": "sleep",
+		"scope": "source.vex"
+	},
+	"slerp": {
+		"body": "slerp(${1})",
+		"prefix": "slerp",
+		"scope": "source.vex"
+	},
+	"slice": {
+		"body": "slice(${1})",
+		"prefix": "slice",
+		"scope": "source.vex"
+	},
+	"slideframe": {
+		"body": "slideframe(${1})",
+		"prefix": "slideframe",
+		"scope": "source.vex"
+	},
+	"smooth": {
+		"body": "smooth(${1})",
+		"prefix": "smooth",
+		"scope": "source.vex"
+	},
+	"smoothrotation": {
+		"body": "smoothrotation(${1})",
+		"prefix": "smoothrotation",
+		"scope": "source.vex"
+	},
+	"snoise": {
+		"body": "snoise(${1})",
+		"prefix": "snoise",
+		"scope": "source.vex"
+	},
+	"solvecubic": {
+		"body": "solvecubic(${1})",
+		"prefix": "solvecubic",
+		"scope": "source.vex"
+	},
+	"solvepoly": {
+		"body": "solvepoly(${1})",
+		"prefix": "solvepoly",
+		"scope": "source.vex"
+	},
+	"solvequadratic": {
+		"body": "solvequadratic(${1})",
+		"prefix": "solvequadratic",
+		"scope": "source.vex"
+	},
+	"sort": {
+		"body": "sort(${1})",
+		"prefix": "sort",
+		"scope": "source.vex"
+	},
+	"specular": {
+		"body": "specular(${1})",
+		"prefix": "specular",
+		"scope": "source.vex"
+	},
+	"specularBRDF": {
+		"body": "specularBRDF(${1})",
+		"prefix": "specularBRDF",
+		"scope": "source.vex"
+	},
+	"spline": {
+		"body": "spline(${1})",
+		"prefix": "spline",
+		"scope": "source.vex"
+	},
+	"split": {
+		"body": "split(${1})",
+		"prefix": "split",
+		"scope": "source.vex"
+	},
+	"splitpath": {
+		"body": "splitpath(${1})",
+		"prefix": "splitpath",
+		"scope": "source.vex"
+	},
+	"sprintf": {
+		"body": "sprintf(${1})",
+		"prefix": "sprintf",
+		"scope": "source.vex"
+	},
+	"sqrt": {
+		"body": "sqrt(${1})",
+		"prefix": "sqrt",
+		"scope": "source.vex"
+	},
+	"startswith": {
+		"body": "startswith(${1})",
+		"prefix": "startswith",
+		"scope": "source.vex"
+	},
+	"storelightexport": {
+		"body": "storelightexport(${1})",
+		"prefix": "storelightexport",
+		"scope": "source.vex"
+	},
+	"strip": {
+		"body": "strip(${1})",
+		"prefix": "strip",
+		"scope": "source.vex"
+	},
+	"strlen": {
+		"body": "strlen(${1})",
+		"prefix": "strlen",
+		"scope": "source.vex"
+	},
+	"sum": {
+		"body": "sum(${1})",
+		"prefix": "sum",
+		"scope": "source.vex"
+	},
+	"switch": {
+		"body": "switch(${1})",
+		"prefix": "switch",
+		"scope": "source.vex"
+	},
+	"swizzle": {
+		"body": "swizzle(${1})",
+		"prefix": "swizzle",
+		"scope": "source.vex"
+	},
+	"tan": {
+		"body": "tan(${1})",
+		"prefix": "tan",
+		"scope": "source.vex"
+	},
+	"tanh": {
+		"body": "tanh(${1})",
+		"prefix": "tanh",
+		"scope": "source.vex"
+	},
+	"tet_adjacent": {
+		"body": "tet_adjacent(${1})",
+		"prefix": "tet_adjacent",
+		"scope": "source.vex"
+	},
+	"tet_faceindex": {
+		"body": "tet_faceindex(${1})",
+		"prefix": "tet_faceindex",
+		"scope": "source.vex"
+	},
+	"teximport": {
+		"body": "teximport(${1})",
+		"prefix": "teximport",
+		"scope": "source.vex"
+	},
+	"texprintf": {
+		"body": "texprintf(${1})",
+		"prefix": "texprintf",
+		"scope": "source.vex"
+	},
+	"texture": {
+		"body": "texture(${1})",
+		"prefix": "texture",
+		"scope": "source.vex"
+	},
+	"texture3d": {
+		"body": "texture3d(${1})",
+		"prefix": "texture3d",
+		"scope": "source.vex"
+	},
+	"texture3dBox": {
+		"body": "texture3dBox(${1})",
+		"prefix": "texture3dBox",
+		"scope": "source.vex"
+	},
+	"titlecase": {
+		"body": "titlecase(${1})",
+		"prefix": "titlecase",
+		"scope": "source.vex"
+	},
+	"toNDC": {
+		"body": "toNDC(${1})",
+		"prefix": "toNDC",
+		"scope": "source.vex"
+	},
+	"tolower": {
+		"body": "tolower(${1})",
+		"prefix": "tolower",
+		"scope": "source.vex"
+	},
+	"toupper": {
+		"body": "toupper(${1})",
+		"prefix": "toupper",
+		"scope": "source.vex"
+	},
+	"trace": {
+		"body": "trace(${1})",
+		"prefix": "trace",
+		"scope": "source.vex"
+	},
+	"translate": {
+		"body": "translate(${1})",
+		"prefix": "translate",
+		"scope": "source.vex"
+	},
+	"translucent": {
+		"body": "translucent(${1})",
+		"prefix": "translucent",
+		"scope": "source.vex"
+	},
+	"transpose": {
+		"body": "transpose(${1})",
+		"prefix": "transpose",
+		"scope": "source.vex"
+	},
+	"trunc": {
+		"body": "trunc(${1})",
+		"prefix": "trunc",
+		"scope": "source.vex"
+	},
+	"tw_nspace": {
+		"body": "tw_nspace(${1})",
+		"prefix": "tw_nspace",
+		"scope": "source.vex"
+	},
+	"tw_space": {
+		"body": "tw_space(${1})",
+		"prefix": "tw_space",
+		"scope": "source.vex"
+	},
+	"tw_vspace": {
+		"body": "tw_vspace(${1})",
+		"prefix": "tw_vspace",
+		"scope": "source.vex"
+	},
+	"uniqueval": {
+		"body": "uniqueval(${1})",
+		"prefix": "uniqueval",
+		"scope": "source.vex"
+	},
+	"unpack_intfromsafefloat": {
+		"body": "unpack_intfromsafefloat(${1})",
+		"prefix": "unpack_intfromsafefloat",
+		"scope": "source.vex"
+	},
+	"unserialize": {
+		"body": "unserialize(${1})",
+		"prefix": "unserialize",
+		"scope": "source.vex"
+	},
+	"upush": {
+		"body": "upush(${1})",
+		"prefix": "upush",
+		"scope": "source.vex"
+	},
+	"uvunwrap": {
+		"body": "uvunwrap(${1})",
+		"prefix": "uvunwrap",
+		"scope": "source.vex"
+	},
+	"variance": {
+		"body": "variance(${1})",
+		"prefix": "variance",
+		"scope": "source.vex"
+	},
+	"velocityname": {
+		"body": "velocityname(${1})",
+		"prefix": "velocityname",
+		"scope": "source.vex"
+	},
+	"vertex": {
+		"body": "vertex(${1})",
+		"prefix": "vertex",
+		"scope": "source.vex"
+	},
+	"vertexattrib": {
+		"body": "vertexattrib(${1})",
+		"prefix": "vertexattrib",
+		"scope": "source.vex"
+	},
+	"vertexattribsize": {
+		"body": "vertexattribsize(${1})",
+		"prefix": "vertexattribsize",
+		"scope": "source.vex"
+	},
+	"vertexattribtype": {
+		"body": "vertexattribtype(${1})",
+		"prefix": "vertexattribtype",
+		"scope": "source.vex"
+	},
+	"vertexattribtypeinfo": {
+		"body": "vertexattribtypeinfo(${1})",
+		"prefix": "vertexattribtypeinfo",
+		"scope": "source.vex"
+	},
+	"vertexhedge": {
+		"body": "vertexhedge(${1})",
+		"prefix": "vertexhedge",
+		"scope": "source.vex"
+	},
+	"vertexindex": {
+		"body": "vertexindex(${1})",
+		"prefix": "vertexindex",
+		"scope": "source.vex"
+	},
+	"vertexnext": {
+		"body": "vertexnext(${1})",
+		"prefix": "vertexnext",
+		"scope": "source.vex"
+	},
+	"vertexpoint": {
+		"body": "vertexpoint(${1})",
+		"prefix": "vertexpoint",
+		"scope": "source.vex"
+	},
+	"vertexprev": {
+		"body": "vertexprev(${1})",
+		"prefix": "vertexprev",
+		"scope": "source.vex"
+	},
+	"vertexprim": {
+		"body": "vertexprim(${1})",
+		"prefix": "vertexprim",
+		"scope": "source.vex"
+	},
+	"vertexprimindex": {
+		"body": "vertexprimindex(${1})",
+		"prefix": "vertexprimindex",
+		"scope": "source.vex"
+	},
+	"vnoise": {
+		"body": "vnoise(${1})",
+		"prefix": "vnoise",
+		"scope": "source.vex"
+	},
+	"volume": {
+		"body": "volume(${1})",
+		"prefix": "volume",
+		"scope": "source.vex"
+	},
+	"volumegradient": {
+		"body": "volumegradient(${1})",
+		"prefix": "volumegradient",
+		"scope": "source.vex"
+	},
+	"volumeindex": {
+		"body": "volumeindex(${1})",
+		"prefix": "volumeindex",
+		"scope": "source.vex"
+	},
+	"volumeindexorigin": {
+		"body": "volumeindexorigin(${1})",
+		"prefix": "volumeindexorigin",
+		"scope": "source.vex"
+	},
+	"volumeindextopos": {
+		"body": "volumeindextopos(${1})",
+		"prefix": "volumeindextopos",
+		"scope": "source.vex"
+	},
+	"volumeindexv": {
+		"body": "volumeindexv(${1})",
+		"prefix": "volumeindexv",
+		"scope": "source.vex"
+	},
+	"volumepostoindex": {
+		"body": "volumepostoindex(${1})",
+		"prefix": "volumepostoindex",
+		"scope": "source.vex"
+	},
+	"volumeres": {
+		"body": "volumeres(${1})",
+		"prefix": "volumeres",
+		"scope": "source.vex"
+	},
+	"volumesample": {
+		"body": "volumesample(${1})",
+		"prefix": "volumesample",
+		"scope": "source.vex"
+	},
+	"volumesamplev": {
+		"body": "volumesamplev(${1})",
+		"prefix": "volumesamplev",
+		"scope": "source.vex"
+	},
+	"vtransform": {
+		"body": "vtransform(${1})",
+		"prefix": "vtransform",
+		"scope": "source.vex"
+	},
+	"warning": {
+		"body": "warning(${1})",
+		"prefix": "warning",
+		"scope": "source.vex"
+	},
+	"wireblinn": {
+		"body": "wireblinn(${1})",
+		"prefix": "wireblinn",
+		"scope": "source.vex"
+	},
+	"wirediffuse": {
+		"body": "wirediffuse(${1})",
+		"prefix": "wirediffuse",
+		"scope": "source.vex"
+	},
+	"wnoise": {
+		"body": "wnoise(${1})",
+		"prefix": "wnoise",
+		"scope": "source.vex"
+	},
+	"wo_nspace": {
+		"body": "wo_nspace(${1})",
+		"prefix": "wo_nspace",
+		"scope": "source.vex"
+	},
+	"wo_space": {
+		"body": "wo_space(${1})",
+		"prefix": "wo_space",
+		"scope": "source.vex"
+	},
+	"wo_vspace": {
+		"body": "wo_vspace(${1})",
+		"prefix": "wo_vspace",
+		"scope": "source.vex"
+	},
+	"writepixel": {
+		"body": "writepixel(${1})",
+		"prefix": "writepixel",
+		"scope": "source.vex"
+	},
+	"wt_nspace": {
+		"body": "wt_nspace(${1})",
+		"prefix": "wt_nspace",
+		"scope": "source.vex"
+	},
+	"wt_space": {
+		"body": "wt_space(${1})",
+		"prefix": "wt_space",
+		"scope": "source.vex"
+	},
+	"wt_vspace": {
+		"body": "wt_vspace(${1})",
+		"prefix": "wt_vspace",
+		"scope": "source.vex"
+	},
+	"xnoise": {
+		"body": "xnoise(${1})",
+		"prefix": "xnoise",
+		"scope": "source.vex"
+	},
+	"xnoised": {
+		"body": "xnoised(${1})",
+		"prefix": "xnoised",
+		"scope": "source.vex"
+	},
+	"xyzdist": {
+		"body": "xyzdist(${1})",
+		"prefix": "xyzdist",
+		"scope": "source.vex"
+	},
+	"xyztorgb": {
+		"body": "xyztorgb(${1})",
+		"prefix": "xyztorgb",
+		"scope": "source.vex"
 	}
+
 }

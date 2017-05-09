@@ -1,11 +1,10 @@
-# vex README
+# VEX Syntax for VSCode
+### adapted to vscode from [WhileRomeBurns's Sublime version.](https://github.com/WhileRomeBurns)
 
-This is the README for your extension "vex". After writing up a brief description, we recommend including the following sections.
+### Features
 
-<p align="center">
-  <img src="http://shawnlipowski.com/git/vex_tmlanguage_screenshot.png" alt="VEX Syntax Markup Example"/>
-</p>
-
+- VEX Language Support.
+- Simple Snippets.
 
 ### 1.0.0
 

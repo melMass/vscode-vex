@@ -1,15 +1,25 @@
 # VEX Syntax for VSCode
-### adapted to vscode from [WhileRomeBurns's Sublime version.](https://github.com/WhileRomeBurns)
 
+### adapted to vscode from [Teared Sublime version.](https://github.com/teared/vex)
 ### Features
 
 - VEX Language Support.
-- Simple Snippets.
+- Base Snippets.
 
-### 1.0.0
+### 0.3.0
+- Updated for **H16**.
+	
+	\# fixed an issue with single quotes.
 
-Initial release
+### 0.2.0
 
+- Added functions snippets with description
+![](images/function_descriptions.gif)
+
+### 0.1.0
+
+- Initial release
+![](images/basic_snippets.gif)
 
 ### License (MIT)
 

@@ -240,6 +240,12 @@
 			<key>name</key>
 			<string>variable.other.normal.vex</string>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>\@\w*</string>
+			<key>name</key>
+			<string>entity.name.tag.vex</string>
+		</dict>
 	</array>
 	<key>scopeName</key>
 	<string>source.vex</string>

@@ -3,6 +3,7 @@
 **adapted to vscode from [Teared Sublime version.](https://github.com/teared/vex)**
 
 ### Features
+![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/syntax.png)
 
 - VEX Language Support.
 - Base Snippets.

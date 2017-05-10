@@ -14,12 +14,12 @@
 ### 0.2.0
 
 - Added functions snippets with description
-![](images/function_descriptions.gif)
+![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/function_descriptions.gif)
 
 ### 0.1.0
 
 - Initial release
-![](images/basic_snippets.gif)
+![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/basic_snippets.gif)
 
 ### License (MIT)
 

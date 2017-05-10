@@ -2,7 +2,7 @@
     "name": "vex",
     "displayName": "VEX",
     "description": "Houdini VEX Support for VSCode",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "melmass",
     "engines": {
         "vscode": "^1.12.0"

@@ -67,7 +67,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.function.library.vex</string>
+					<string>entity.name.function.vex //support.function.library.vex</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -207,6 +207,12 @@
 			<string>\b(LN10|LN2|LOG10E|LOG2E|PI|PI_2|PI_4|SQRT1_2|SQRT2|TOLERANCE)\b</string>
 			<key>name</key>
 			<string>constant.language</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\w\@\w*</string>
+			<key>name</key>
+			<string>variable.other.normal.vex</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

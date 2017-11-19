@@ -9,17 +9,21 @@
 - Base Snippets.
 - Functions descriptions with attributes.
 
-### 0.3.0
+#### Icon available in the [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme)
+![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/files.png)
+
+### Releases
+#### 0.3.0
 - Updated for **H16**.
 - **fix**: issue with single quotes.
 
-### 0.2.0
+#### 0.2.0
 
 - Added functions snippets with description
 	
 	![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/function_descriptions.gif)
 
-### 0.1.0
+#### 0.1.0
 
 - Initial release
 	

@@ -26,7 +26,7 @@ Briefly it will add:
 ---
 
 # Releases
-## [0.5.0]
+## [0.5.1]
 - Updated for **H18**.
  
 ## [0.3.0]

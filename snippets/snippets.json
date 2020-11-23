@@ -269,6 +269,12 @@
 			"scope": "source.vex",
 			"description": "Returns the list of vertices connected to a point."
 	},
+	"invlerp: a min max": {
+			"prefix": "invlerp(a, min, max)",
+			"body": "invlerp(${1:a}, ${2:min}, ${3:max})",
+			"scope": "source.vex",
+			"description": "Inverses a linear interpolation between the values."
+	},
 	"chsop: channel": {
 			"prefix": "chsop(channel)",
 			"body": "chsop(${1:channel})",
@@ -431,6 +437,12 @@
 			"scope": "source.vex",
 			"description": "Returns the length of an array."
 	},
+	"len: d": {
+			"prefix": "len(d)",
+			"body": "len(${1:d})",
+			"scope": "source.vex",
+			"description": "Returns the length of an array."
+	},
 	"random_fhash: seed": {
 			"prefix": "random_fhash(seed)",
 			"body": "random_fhash(${1:seed})",
@@ -460,6 +472,12 @@
 			"body": "cspline(${1:t}, ${2:val1}, ${3:...})",
 			"scope": "source.vex",
 			"description": "Samples a Catmull-Rom (Cardinal) spline defined by uniformly spaced keys."
+	},
+	"pointtransforms: geometry pnts": {
+			"prefix": "pointtransforms(geometry, pnts)",
+			"body": "pointtransforms(${1:geometry}, ${2:pnts})",
+			"scope": "source.vex",
+			"description": "Returns an array of point transforms from an array of point indices."
 	},
 	"rand: seed": {
 			"prefix": "rand(seed)",
@@ -604,6 +622,12 @@
 			"body": "agentlayerbindings(${1:geometry}, ${2:prim}, ${3:layername}, ${4:shapetype})",
 			"scope": "source.vex",
 			"description": "Returns the transform that each shape in an agent\u2019s layer is bound to."
+	},
+	"ramp_unpack: ramp basis pos value": {
+			"prefix": "ramp_unpack(ramp, basis, pos, value)",
+			"body": "ramp_unpack(${1:ramp}, ${2:basis}, ${3:pos}, ${4:value})",
+			"scope": "source.vex",
+			"description": "Unpacks a string-encoded ramp into a set of arrays."
 	},
 	"usd_makepropertypath: stage primpath name": {
 			"prefix": "usd_makepropertypath(stage, primpath, name)",
@@ -1101,19 +1125,19 @@
 			"prefix": "sample_cdf(cdf, uniform_rand)",
 			"body": "sample_cdf(${1:cdf}, ${2:uniform_rand})",
 			"scope": "source.vex",
-			"description": "Samples a CDF."
+			"description": "Samples a cumulative distribution function (CDF)."
 	},
 	"sample_cdf: cdf uniform_rand index x": {
 			"prefix": "sample_cdf(cdf, uniform_rand, index, x)",
 			"body": "sample_cdf(${1:cdf}, ${2:uniform_rand}, ${3:index}, ${4:x})",
 			"scope": "source.vex",
-			"description": "Samples a CDF."
+			"description": "Samples a cumulative distribution function (CDF)."
 	},
 	"sample_cdf: cdf uniform_rand index x pdf": {
 			"prefix": "sample_cdf(cdf, uniform_rand, index, x, pdf)",
 			"body": "sample_cdf(${1:cdf}, ${2:uniform_rand}, ${3:index}, ${4:x}, ${5:pdf})",
 			"scope": "source.vex",
-			"description": "Samples a CDF."
+			"description": "Samples a cumulative distribution function (CDF)."
 	},
 	"usd_worldtransform: stage primpath": {
 			"prefix": "usd_worldtransform(stage, primpath)",
@@ -1198,6 +1222,12 @@
 			"body": "isuvrendering()",
 			"scope": "source.vex",
 			"description": "Indicates whether the shader is being evaluated while doing UV rendering (e.g. texture unwrapping)"
+	},
+	"filter_remap: uv filter width ...": {
+			"prefix": "filter_remap(uv, filter, width, ...)",
+			"body": "filter_remap(${1:uv}, ${2:filter}, ${3:width}, ${4:...})",
+			"scope": "source.vex",
+			"description": "Computes an importance sample based on the given filter type and input uv."
 	},
 	"agentcliplength: geometry prim clipname": {
 			"prefix": "agentcliplength(geometry, prim, clipname)",
@@ -1505,6 +1535,12 @@
 			"scope": "source.vex",
 			"description": "Removes an item at the given index from an array."
 	},
+	"removeindex: dictionary index": {
+			"prefix": "removeindex(dictionary, index)",
+			"body": "removeindex(${1:dictionary}, ${2:index})",
+			"scope": "source.vex",
+			"description": "Removes an item at the given index from an array."
+	},
 	"ocio_spaces: ": {
 			"prefix": "ocio_spaces()",
 			"body": "ocio_spaces()",
@@ -1522,6 +1558,12 @@
 			"body": "ixres(${1:opinput})",
 			"scope": "source.vex",
 			"description": "Returns the X resolution of the specified input."
+	},
+	"json_dumps: d flags": {
+			"prefix": "json_dumps(d, flags)",
+			"body": "json_dumps(${1:d}, ${2:flags})",
+			"scope": "source.vex",
+			"description": "Converts a VEX dictionary into a JSON string."
 	},
 	"agentrigfind: geometry prim transformname": {
 			"prefix": "agentrigfind(geometry, prim, transformname)",
@@ -2171,6 +2213,12 @@
 			"scope": "source.vex",
 			"description": "Returns a selection of lights that illuminate a given material."
 	},
+	"chdict: channel": {
+			"prefix": "chdict(channel)",
+			"body": "chdict(${1:channel})",
+			"scope": "source.vex",
+			"description": "Evaluates a key-value dictionary parameter and return its value."
+	},
 	"hedge_dstpoint: geometry hedge": {
 			"prefix": "hedge_dstpoint(geometry, hedge)",
 			"body": "hedge_dstpoint(${1:geometry}, ${2:hedge})",
@@ -2291,6 +2339,12 @@
 			"scope": "source.vex",
 			"description": "Returns an array of point numbers corresponding to a group string."
 	},
+	"expandpointgroup: geometry groupname mode": {
+			"prefix": "expandpointgroup(geometry, groupname, mode)",
+			"body": "expandpointgroup(${1:geometry}, ${2:groupname}, ${3:mode})",
+			"scope": "source.vex",
+			"description": "Returns an array of point numbers corresponding to a group string."
+	},
 	"iplanesize: opinput planeindex": {
 			"prefix": "iplanesize(opinput, planeindex)",
 			"body": "iplanesize(${1:opinput}, ${2:planeindex})",
@@ -2301,13 +2355,13 @@
 			"prefix": "uvunwrap(object_path, u, v, time, P, I)",
 			"body": "uvunwrap(${1:object_path}, ${2:u}, ${3:v}, ${4:time}, ${5:P}, ${6:I})",
 			"scope": "source.vex",
-			"description": "Computes the position and normal at given (u, v) coordinates."
+			"description": "Computes the position and normal at given (u, v) coordinates, for use in a lens shader."
 	},
 	"uvunwrap: object_path u v time P I mikkelsenUtan mikkelsenVtan": {
 			"prefix": "uvunwrap(object_path, u, v, time, P, I, mikkelsenUtan, mikkelsenVtan)",
 			"body": "uvunwrap(${1:object_path}, ${2:u}, ${3:v}, ${4:time}, ${5:P}, ${6:I}, ${7:mikkelsenUtan}, ${8:mikkelsenVtan})",
 			"scope": "source.vex",
-			"description": "Computes the position and normal at given (u, v) coordinates."
+			"description": "Computes the position and normal at given (u, v) coordinates, for use in a lens shader."
 	},
 	"lightbounces: lp": {
 			"prefix": "lightbounces(lp)",
@@ -2693,6 +2747,18 @@
 			"scope": "source.vex",
 			"description": "Inserts an item, array, or string into an array or string."
 	},
+	"insert: dstdict dstkey srcdict srckey": {
+			"prefix": "insert(dstdict, dstkey, srcdict, srckey)",
+			"body": "insert(${1:dstdict}, ${2:dstkey}, ${3:srcdict}, ${4:srckey})",
+			"scope": "source.vex",
+			"description": "Inserts an item, array, or string into an array or string."
+	},
+	"insert: dstdict srcdict": {
+			"prefix": "insert(dstdict, srcdict)",
+			"body": "insert(${1:dstdict}, ${2:srcdict})",
+			"scope": "source.vex",
+			"description": "Inserts an item, array, or string into an array or string."
+	},
 	"smoothrotation: order r r_reference": {
 			"prefix": "smoothrotation(order, r, r_reference)",
 			"body": "smoothrotation(${1:order}, ${2:r}, ${3:r_reference})",
@@ -2716,6 +2782,18 @@
 			"body": "isvalidindex(${1:str}, ${2:index})",
 			"scope": "source.vex",
 			"description": "Checks if the index given is valid for the array or string given."
+	},
+	"isvalidindex: d key": {
+			"prefix": "isvalidindex(d, key)",
+			"body": "isvalidindex(${1:d}, ${2:key})",
+			"scope": "source.vex",
+			"description": "Checks if the index given is valid for the array or string given."
+	},
+	"solvefbik: xforms parents jointoptions targetxforms targets targetoptions iters tolerance pinroot": {
+			"prefix": "solvefbik(xforms, parents, jointoptions, targetxforms, targets, targetoptions, iters, tolerance, pinroot)",
+			"body": "solvefbik(${1:xforms}, ${2:parents}, ${3:jointoptions}, ${4:targetxforms}, ${5:targets}, ${6:targetoptions}, ${7:iters}, ${8:tolerance}, ${9:pinroot})",
+			"scope": "source.vex",
+			"description": "Applies a full-body inverse kinematics algorithm to a skeleton."
 	},
 	"solvefbik: xforms parents targets targetxforms iters": {
 			"prefix": "solvefbik(xforms, parents, targets, targetxforms, iters)",
@@ -2907,7 +2985,7 @@
 			"prefix": "create_cdf(pdf)",
 			"body": "create_cdf(${1:pdf})",
 			"scope": "source.vex",
-			"description": "Creates a CDF from an array of input PDF values."
+			"description": "Creates a cumulative distribution function (CDF) from an array of probability density function (PDF) values."
 	},
 	"solvepoly: coef roots maxiter": {
 			"prefix": "solvepoly(coef, roots, maxiter)",
@@ -3353,6 +3431,12 @@
 			"scope": "source.vex",
 			"description": "Determines if a point is inside or outside a tetrahedron circumsphere."
 	},
+	"keys: d": {
+			"prefix": "keys(d)",
+			"body": "keys(${1:d})",
+			"scope": "source.vex",
+			"description": "Returns all the keys in a dictionary."
+	},
 	"noised: x v dvdx": {
 			"prefix": "noised(x, v, dvdx)",
 			"body": "noised(${1:x}, ${2:v}, ${3:dvdx})",
@@ -3497,6 +3581,18 @@
 			"scope": "source.vex",
 			"description": "Returns the parm transform associated with an OP."
 	},
+	"ramp_lookup: pos ramp": {
+			"prefix": "ramp_lookup(pos, ramp)",
+			"body": "ramp_lookup(${1:pos}, ${2:ramp})",
+			"scope": "source.vex",
+			"description": "Evaluates a Houdini-style ramp at a specific location."
+	},
+	"ramp_lookup: pos basis key val": {
+			"prefix": "ramp_lookup(pos, basis, key, val)",
+			"body": "ramp_lookup(${1:pos}, ${2:basis}, ${3:key}, ${4:val})",
+			"scope": "source.vex",
+			"description": "Evaluates a Houdini-style ramp at a specific location."
+	},
 	"ntransform: v transform": {
 			"prefix": "ntransform(v, transform)",
 			"body": "ntransform(${1:v}, ${2:transform})",
@@ -3628,6 +3724,12 @@
 			"body": "ch4(${1:channel}, ${2:time})",
 			"scope": "source.vex",
 			"description": "Evaluates a channel (or parameter) and return its value."
+	},
+	"random_brj: seed offset": {
+			"prefix": "random_brj(seed, offset)",
+			"body": "random_brj(${1:seed}, ${2:offset})",
+			"scope": "source.vex",
+			"description": "Generate a uniformly distributed random number."
 	},
 	"getbounds: filename min max": {
 			"prefix": "getbounds(filename, min, max)",
@@ -3963,31 +4065,31 @@
 			"prefix": "lookat(from, to)",
 			"body": "lookat(${1:from}, ${2:to})",
 			"scope": "source.vex",
-			"description": "Computes a rotation matrix or angles to orient the z-axis along the vector\n(to-from) under the transformation."
+			"description": "Computes a rotation matrix or angles to orient the negative z-axis along the vector (to-from) under the transformation."
 	},
 	"lookat: from to roll": {
 			"prefix": "lookat(from, to, roll)",
 			"body": "lookat(${1:from}, ${2:to}, ${3:roll})",
 			"scope": "source.vex",
-			"description": "Computes a rotation matrix or angles to orient the z-axis along the vector\n(to-from) under the transformation."
+			"description": "Computes a rotation matrix or angles to orient the negative z-axis along the vector (to-from) under the transformation."
 	},
 	"lookat: from to up": {
 			"prefix": "lookat(from, to, up)",
 			"body": "lookat(${1:from}, ${2:to}, ${3:up})",
 			"scope": "source.vex",
-			"description": "Computes a rotation matrix or angles to orient the z-axis along the vector\n(to-from) under the transformation."
+			"description": "Computes a rotation matrix or angles to orient the negative z-axis along the vector (to-from) under the transformation."
 	},
 	"lookat: from to roll xyz": {
 			"prefix": "lookat(from, to, roll, xyz)",
 			"body": "lookat(${1:from}, ${2:to}, ${3:roll}, ${4:xyz})",
 			"scope": "source.vex",
-			"description": "Computes a rotation matrix or angles to orient the z-axis along the vector\n(to-from) under the transformation."
+			"description": "Computes a rotation matrix or angles to orient the negative z-axis along the vector (to-from) under the transformation."
 	},
 	"lookat: from to up xyz": {
 			"prefix": "lookat(from, to, up, xyz)",
 			"body": "lookat(${1:from}, ${2:to}, ${3:up}, ${4:xyz})",
 			"scope": "source.vex",
-			"description": "Computes a rotation matrix or angles to orient the z-axis along the vector\n(to-from) under the transformation."
+			"description": "Computes a rotation matrix or angles to orient the negative z-axis along the vector (to-from) under the transformation."
 	},
 	"diffuse: ...": {
 			"prefix": "diffuse(...)",
@@ -4133,9 +4235,15 @@
 			"scope": "source.vex",
 			"description": "Determines whether a two half-edges are equivalent (represent the same edge)."
 	},
-	"combinelocaltransform: local parent_world parent_local mode": {
-			"prefix": "combinelocaltransform(local, parent_world, parent_local, mode)",
-			"body": "combinelocaltransform(${1:local}, ${2:parent_world}, ${3:parent_local}, ${4:mode})",
+	"combinelocaltransform: local parent_world parent_local scale_inherit_mode": {
+			"prefix": "combinelocaltransform(local, parent_world, parent_local, scale_inherit_mode)",
+			"body": "combinelocaltransform(${1:local}, ${2:parent_world}, ${3:parent_local}, ${4:scale_inherit_mode})",
+			"scope": "source.vex",
+			"description": "Combines Local and Parent Transforms with Scale Inheritance."
+	},
+	"combinelocaltransform: local parent_world parent_local scale_inherit_mode effective_local_transform": {
+			"prefix": "combinelocaltransform(local, parent_world, parent_local, scale_inherit_mode, effective_local_transform)",
+			"body": "combinelocaltransform(${1:local}, ${2:parent_world}, ${3:parent_local}, ${4:scale_inherit_mode}, ${5:effective_local_transform})",
 			"scope": "source.vex",
 			"description": "Combines Local and Parent Transforms with Scale Inheritance."
 	},
@@ -4487,6 +4595,12 @@
 			"scope": "source.vex",
 			"description": "Reads the value of a detail attribute value from a geometry."
 	},
+	"spline_cdf: bases values positions ...": {
+			"prefix": "spline_cdf(bases, values, positions, ...)",
+			"body": "spline_cdf(${1:bases}, ${2:values}, ${3:positions}, ${4:...})",
+			"scope": "source.vex",
+			"description": "Generate a cumulative distribution function (CDF) by sampling a spline curve."
+	},
 	"shadow_light: lightid pos dir time ...": {
 			"prefix": "shadow_light(lightid, pos, dir, time, ...)",
 			"body": "shadow_light(${1:lightid}, ${2:pos}, ${3:dir}, ${4:time}, ${5:...})",
@@ -4510,6 +4624,18 @@
 			"body": "usd_addattrib(${1:stagehandle}, ${2:primpath}, ${3:name}, ${4:typename})",
 			"scope": "source.vex",
 			"description": "Creates an attribute of a given type on a primitive."
+	},
+	"setpointtransforms: geometry pnts transforms": {
+			"prefix": "setpointtransforms(geometry, pnts, transforms)",
+			"body": "setpointtransforms(${1:geometry}, ${2:pnts}, ${3:transforms})",
+			"scope": "source.vex",
+			"description": "Sets an array of point transforms at the given point indices."
+	},
+	"setpointtransforms: geometry pnts transforms constrain": {
+			"prefix": "setpointtransforms(geometry, pnts, transforms, constrain)",
+			"body": "setpointtransforms(${1:geometry}, ${2:pnts}, ${3:transforms}, ${4:constrain})",
+			"scope": "source.vex",
+			"description": "Sets an array of point transforms at the given point indices."
 	},
 	"length: f": {
 			"prefix": "length(f)",
@@ -5073,7 +5199,7 @@
 			"prefix": "create_pdf(values)",
 			"body": "create_pdf(${1:values})",
 			"scope": "source.vex",
-			"description": "Creates a PDF from an array of input values."
+			"description": "Creates a probability density function from an array of input values."
 	},
 	"erf: v": {
 			"prefix": "erf(v)",
@@ -5309,6 +5435,18 @@
 			"scope": "source.vex",
 			"description": "Extracts a single component of a vector type, matrix type, or array."
 	},
+	"getcomp: d index": {
+			"prefix": "getcomp(d, index)",
+			"body": "getcomp(${1:d}, ${2:index})",
+			"scope": "source.vex",
+			"description": "Extracts a single component of a vector type, matrix type, or array."
+	},
+	"getcomp: d index defvalue": {
+			"prefix": "getcomp(d, index, defvalue)",
+			"body": "getcomp(${1:d}, ${2:index}, ${3:defvalue})",
+			"scope": "source.vex",
+			"description": "Extracts a single component of a vector type, matrix type, or array."
+	},
 	"getcomp: value index": {
 			"prefix": "getcomp(value, index)",
 			"body": "getcomp(${1:value}, ${2:index})",
@@ -5471,6 +5609,12 @@
 			"scope": "source.vex",
 			"description": "Returns an array of prim numbers corresponding to a group string."
 	},
+	"expandprimgroup: geometry groupname mode": {
+			"prefix": "expandprimgroup(geometry, groupname, mode)",
+			"body": "expandprimgroup(${1:geometry}, ${2:groupname}, ${3:mode})",
+			"scope": "source.vex",
+			"description": "Returns an array of prim numbers corresponding to a group string."
+	},
 	"usd_isarray: stage primpath name": {
 			"prefix": "usd_isarray(stage, primpath, name)",
 			"body": "usd_isarray(${1:stage}, ${2:primpath}, ${3:name})",
@@ -5531,15 +5675,15 @@
 			"scope": "source.vex",
 			"description": "Reads a point attribute value from a geometry and outputs a success/fail flag."
 	},
-	"primuvconvert: filename uv prim_num mode": {
-			"prefix": "primuvconvert(filename, uv, prim_num, mode)",
-			"body": "primuvconvert(${1:filename}, ${2:uv}, ${3:prim_num}, ${4:mode})",
+	"primuvconvert: geometry uv prim_num mode": {
+			"prefix": "primuvconvert(geometry, uv, prim_num, mode)",
+			"body": "primuvconvert(${1:geometry}, ${2:uv}, ${3:prim_num}, ${4:mode})",
 			"scope": "source.vex",
 			"description": "Convert parametric UV locations on curve primitives between different spaces."
 	},
-	"primuvconvert: filename uv prim_num mode tolerance": {
-			"prefix": "primuvconvert(filename, uv, prim_num, mode, tolerance)",
-			"body": "primuvconvert(${1:filename}, ${2:uv}, ${3:prim_num}, ${4:mode}, ${5:tolerance})",
+	"primuvconvert: geometry uv prim_num mode tolerance": {
+			"prefix": "primuvconvert(geometry, uv, prim_num, mode, tolerance)",
+			"body": "primuvconvert(${1:geometry}, ${2:uv}, ${3:prim_num}, ${4:mode}, ${5:tolerance})",
 			"scope": "source.vex",
 			"description": "Convert parametric UV locations on curve primitives between different spaces."
 	},
@@ -5681,9 +5825,15 @@
 			"scope": "source.vex",
 			"description": "Returns one of the half-edges contained in a primitive."
 	},
-	"extractlocaltransform: world parent_world parent_local mode": {
-			"prefix": "extractlocaltransform(world, parent_world, parent_local, mode)",
-			"body": "extractlocaltransform(${1:world}, ${2:parent_world}, ${3:parent_local}, ${4:mode})",
+	"extractlocaltransform: world parent_world parent_local scale_inherit_mode": {
+			"prefix": "extractlocaltransform(world, parent_world, parent_local, scale_inherit_mode)",
+			"body": "extractlocaltransform(${1:world}, ${2:parent_world}, ${3:parent_local}, ${4:scale_inherit_mode})",
+			"scope": "source.vex",
+			"description": "Extracts Local Transform from a World Transform with Scale Inheritance."
+	},
+	"extractlocaltransform: world parent_world parent_local mode effective_local_transform": {
+			"prefix": "extractlocaltransform(world, parent_world, parent_local, mode, effective_local_transform)",
+			"body": "extractlocaltransform(${1:world}, ${2:parent_world}, ${3:parent_local}, ${4:mode}, ${5:effective_local_transform})",
 			"scope": "source.vex",
 			"description": "Extracts Local Transform from a World Transform with Scale Inheritance."
 	},
@@ -5861,15 +6011,15 @@
 			"scope": "source.vex",
 			"description": "Returns the name of the attribute type."
 	},
-	"rgbtohsv: hsv": {
-			"prefix": "rgbtohsv(hsv)",
-			"body": "rgbtohsv(${1:hsv})",
+	"rgbtohsv: rgb": {
+			"prefix": "rgbtohsv(rgb)",
+			"body": "rgbtohsv(${1:rgb})",
 			"scope": "source.vex",
 			"description": "Convert RGB color space to HSV color space."
 	},
-	"rgbtohsv: h s v": {
-			"prefix": "rgbtohsv(h, s, v)",
-			"body": "rgbtohsv(${1:h}, ${2:s}, ${3:v})",
+	"rgbtohsv: r g b": {
+			"prefix": "rgbtohsv(r, g, b)",
+			"body": "rgbtohsv(${1:r}, ${2:g}, ${3:b})",
 			"scope": "source.vex",
 			"description": "Convert RGB color space to HSV color space."
 	},
@@ -5909,15 +6059,15 @@
 			"scope": "source.vex",
 			"description": "Returns the integer ID of the light being used for photon shading."
 	},
-	"expandedgegroup: filename groupname": {
-			"prefix": "expandedgegroup(filename, groupname)",
-			"body": "expandedgegroup(${1:filename}, ${2:groupname})",
+	"expandedgegroup: geometry groupname": {
+			"prefix": "expandedgegroup(geometry, groupname)",
+			"body": "expandedgegroup(${1:geometry}, ${2:groupname})",
 			"scope": "source.vex",
 			"description": ""
 	},
-	"expandedgegroup: input groupname": {
-			"prefix": "expandedgegroup(input, groupname)",
-			"body": "expandedgegroup(${1:input}, ${2:groupname})",
+	"expandedgegroup: geometry groupname mode": {
+			"prefix": "expandedgegroup(geometry, groupname, mode)",
+			"body": "expandedgegroup(${1:geometry}, ${2:groupname}, ${3:mode})",
 			"scope": "source.vex",
 			"description": ""
 	},
@@ -5938,6 +6088,12 @@
 			"body": "getpointbbox_center(${1:geometry}, ${2:pointgroup})",
 			"scope": "source.vex",
 			"description": "Returns the center of the bounding box for the geometry."
+	},
+	"pointtransform: geometry pnt": {
+			"prefix": "pointtransform(geometry, pnt)",
+			"body": "pointtransform(${1:geometry}, ${2:pnt})",
+			"scope": "source.vex",
+			"description": "Returns a point transform from a point index."
 	},
 	"chsetlength: clip_length": {
 			"prefix": "chsetlength(clip_length)",
@@ -6797,6 +6953,12 @@
 			"scope": "source.vex",
 			"description": "Returns the current world space transform of an agent primitive\u2019s bone."
 	},
+	"pointtransformsrigid: geometry pnts": {
+			"prefix": "pointtransformsrigid(geometry, pnts)",
+			"body": "pointtransformsrigid(${1:geometry}, ${2:pnts})",
+			"scope": "source.vex",
+			"description": "Returns an array of rigid point transforms from an array of point indices."
+	},
 	"intersect_all: geometry group orig dir pos prim uvw tol ttol": {
 			"prefix": "intersect_all(geometry, group, orig, dir, pos, prim, uvw, tol, ttol)",
 			"body": "intersect_all(${1:geometry}, ${2:group}, ${3:orig}, ${4:dir}, ${5:pos}, ${6:prim}, ${7:uvw}, ${8:tol}, ${9:ttol})",
@@ -7013,6 +7175,12 @@
 			"scope": "source.vex",
 			"description": "Creates a new value based on its arguments, such as creating a vector from its components."
 	},
+	"set: key ...": {
+			"prefix": "set(key, ...)",
+			"body": "set(${1:key}, ${2:...})",
+			"scope": "source.vex",
+			"description": "Creates a new value based on its arguments, such as creating a vector from its components."
+	},
 	"encodeattrib: str": {
 			"prefix": "encodeattrib(str)",
 			"body": "encodeattrib(${1:str})",
@@ -7139,9 +7307,27 @@
 			"scope": "source.vex",
 			"description": "Applies a curve inverse kinematics algorithm to a skeleton."
 	},
+	"solvecurve: outlength outpos lengths closed orienttonormal normalmode tangent points normals": {
+			"prefix": "solvecurve(outlength, outpos, lengths, closed, orienttonormal, normalmode, tangent, points, normals)",
+			"body": "solvecurve(${1:outlength}, ${2:outpos}, ${3:lengths}, ${4:closed}, ${5:orienttonormal}, ${6:normalmode}, ${7:tangent}, ${8:points}, ${9:normals})",
+			"scope": "source.vex",
+			"description": "Applies a curve inverse kinematics algorithm to a skeleton."
+	},
+	"solvecurve: outlength outpos lengths closed orienttonormal normalmode tangent points normals twists initialtwists fmt order lod": {
+			"prefix": "solvecurve(outlength, outpos, lengths, closed, orienttonormal, normalmode, tangent, points, normals, twists, initialtwists, fmt, order, lod)",
+			"body": "solvecurve(${1:outlength}, ${2:outpos}, ${3:lengths}, ${4:closed}, ${5:orienttonormal}, ${6:normalmode}, ${7:tangent}, ${8:points}, ${9:normals}, ${10:twists}, ${11:initialtwists}, ${12:fmt}, ${13:order}, ${14:lod})",
+			"scope": "source.vex",
+			"description": "Applies a curve inverse kinematics algorithm to a skeleton."
+	},
 	"solvecurve: op lengths closed orienttonormal tangent normalcalcmethod relmat": {
 			"prefix": "solvecurve(op, lengths, closed, orienttonormal, tangent, normalcalcmethod, relmat)",
 			"body": "solvecurve(${1:op}, ${2:lengths}, ${3:closed}, ${4:orienttonormal}, ${5:tangent}, ${6:normalcalcmethod}, ${7:relmat})",
+			"scope": "source.vex",
+			"description": "Applies a curve inverse kinematics algorithm to a skeleton."
+	},
+	"solvecurve: op lengths closed orienttonormal tangent normalcalcmethod relmat primnum lod": {
+			"prefix": "solvecurve(op, lengths, closed, orienttonormal, tangent, normalcalcmethod, relmat, primnum, lod)",
+			"body": "solvecurve(${1:op}, ${2:lengths}, ${3:closed}, ${4:orienttonormal}, ${5:tangent}, ${6:normalcalcmethod}, ${7:relmat}, ${8:primnum}, ${9:lod})",
 			"scope": "source.vex",
 			"description": "Applies a curve inverse kinematics algorithm to a skeleton."
 	},
@@ -7245,13 +7431,13 @@
 			"prefix": "lerp(value1, value2, amount)",
 			"body": "lerp(${1:value1}, ${2:value2}, ${3:amount})",
 			"scope": "source.vex",
-			"description": "Performs bilinear interpolation between the values."
+			"description": "Performs linear interpolation between the values."
 	},
 	"lerp: bsdf1 bsdf2 amount": {
 			"prefix": "lerp(bsdf1, bsdf2, amount)",
 			"body": "lerp(${1:bsdf1}, ${2:bsdf2}, ${3:amount})",
 			"scope": "source.vex",
-			"description": "Performs bilinear interpolation between the values."
+			"description": "Performs linear interpolation between the values."
 	},
 	"wt_nspace: v": {
 			"prefix": "wt_nspace(v)",
@@ -7304,6 +7490,12 @@
 	"polardecomp: transform": {
 			"prefix": "polardecomp(transform)",
 			"body": "polardecomp(${1:transform})",
+			"scope": "source.vex",
+			"description": "Computes the polar decomposition of a matrix."
+	},
+	"polardecomp: transform rot stretch check_determinant": {
+			"prefix": "polardecomp(transform, rot, stretch, check_determinant)",
+			"body": "polardecomp(${1:transform}, ${2:rot}, ${3:stretch}, ${4:check_determinant})",
 			"scope": "source.vex",
 			"description": "Computes the polar decomposition of a matrix."
 	},
@@ -7379,6 +7571,18 @@
 			"scope": "source.vex",
 			"description": "Returns the derivative of the given value with respect to U."
 	},
+	"setpointtransform: geometry pt transform": {
+			"prefix": "setpointtransform(geometry, pt, transform)",
+			"body": "setpointtransform(${1:geometry}, ${2:pt}, ${3:transform})",
+			"scope": "source.vex",
+			"description": "Sets the world space transform of a given point"
+	},
+	"setpointtransform: geometry pt transform constrain": {
+			"prefix": "setpointtransform(geometry, pt, transform, constrain)",
+			"body": "setpointtransform(${1:geometry}, ${2:pt}, ${3:transform}, ${4:constrain})",
+			"scope": "source.vex",
+			"description": "Sets the world space transform of a given point"
+	},
 	"pathtrace: P N ...": {
 			"prefix": "pathtrace(P, N, ...)",
 			"body": "pathtrace(${1:P}, ${2:N}, ${3:...})",
@@ -7448,6 +7652,12 @@
 	"setcomp: array value index": {
 			"prefix": "setcomp(array, value, index)",
 			"body": "setcomp(${1:array}, ${2:value}, ${3:index})",
+			"scope": "source.vex",
+			"description": "Sets a single component of a vector or matrix type, or an item in an array."
+	},
+	"setcomp: d value index": {
+			"prefix": "setcomp(d, value, index)",
+			"body": "setcomp(${1:d}, ${2:value}, ${3:index})",
 			"scope": "source.vex",
 			"description": "Sets a single component of a vector or matrix type, or an item in an array."
 	},
@@ -7763,6 +7973,18 @@
 			"scope": "source.vex",
 			"description": "Evaluates the length of an arc on a primitive using parametric uv coordinates."
 	},
+	"primarclen: geometry uv1 uv2 prim_num divs primuvmode": {
+			"prefix": "primarclen(geometry, uv1, uv2, prim_num, divs, primuvmode)",
+			"body": "primarclen(${1:geometry}, ${2:uv1}, ${3:uv2}, ${4:prim_num}, ${5:divs}, ${6:primuvmode})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive using parametric uv coordinates."
+	},
+	"primarclen: geometry uv1 uv2 prim_num divs primuvmode primuvtol": {
+			"prefix": "primarclen(geometry, uv1, uv2, prim_num, divs, primuvmode, primuvtol)",
+			"body": "primarclen(${1:geometry}, ${2:uv1}, ${3:uv2}, ${4:prim_num}, ${5:divs}, ${6:primuvmode}, ${7:primuvtol})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive using parametric uv coordinates."
+	},
 	"isshadingRHS: ": {
 			"prefix": "isshadingRHS()",
 			"body": "isshadingRHS()",
@@ -7888,6 +8110,30 @@
 			"body": "osd_patchcount(${1:geometry}, ${2:face_id})",
 			"scope": "source.vex",
 			"description": ""
+	},
+	"curvearclen: positions uv1 uv2 closedflag fmt order": {
+			"prefix": "curvearclen(positions, uv1, uv2, closedflag, fmt, order)",
+			"body": "curvearclen(${1:positions}, ${2:uv1}, ${3:uv2}, ${4:closedflag}, ${5:fmt}, ${6:order})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive defined by an array of points using parametric uv coordinates."
+	},
+	"curvearclen: positions uv1 uv2 closedflag fmt order divs": {
+			"prefix": "curvearclen(positions, uv1, uv2, closedflag, fmt, order, divs)",
+			"body": "curvearclen(${1:positions}, ${2:uv1}, ${3:uv2}, ${4:closedflag}, ${5:fmt}, ${6:order}, ${7:divs})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive defined by an array of points using parametric uv coordinates."
+	},
+	"curvearclen: positions uv1 uv2 closedflag fmt order divs primuvmode": {
+			"prefix": "curvearclen(positions, uv1, uv2, closedflag, fmt, order, divs, primuvmode)",
+			"body": "curvearclen(${1:positions}, ${2:uv1}, ${3:uv2}, ${4:closedflag}, ${5:fmt}, ${6:order}, ${7:divs}, ${8:primuvmode})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive defined by an array of points using parametric uv coordinates."
+	},
+	"curvearclen: positions uv1 uv2 closedflag fmt order divs primuvmode primuvtol": {
+			"prefix": "curvearclen(positions, uv1, uv2, closedflag, fmt, order, divs, primuvmode, primuvtol)",
+			"body": "curvearclen(${1:positions}, ${2:uv1}, ${3:uv2}, ${4:closedflag}, ${5:fmt}, ${6:order}, ${7:divs}, ${8:primuvmode}, ${9:primuvtol})",
+			"scope": "source.vex",
+			"description": "Evaluates the length of an arc on a primitive defined by an array of points using parametric uv coordinates."
 	},
 	"agentcliptimes: geometry prim": {
 			"prefix": "agentcliptimes(geometry, prim)",
@@ -8045,6 +8291,18 @@
 			"scope": "source.vex",
 			"description": "Returns an oppath: string to unwrap the geometry in-place."
 	},
+	"pointtransformrigid: geometry pnt": {
+			"prefix": "pointtransformrigid(geometry, pnt)",
+			"body": "pointtransformrigid(${1:geometry}, ${2:pnt})",
+			"scope": "source.vex",
+			"description": "Returns a rigid point transform from a point index."
+	},
+	"pointlocaltransforms: geometry pnts": {
+			"prefix": "pointlocaltransforms(geometry, pnts)",
+			"body": "pointlocaltransforms(${1:geometry}, ${2:pnts})",
+			"scope": "source.vex",
+			"description": "Returns an array of point localtransforms from an array of point indices."
+	},
 	"atoi: str": {
 			"prefix": "atoi(str)",
 			"body": "atoi(${1:str})",
@@ -8162,6 +8420,12 @@
 	"expandvertexgroup: geometry groupname": {
 			"prefix": "expandvertexgroup(geometry, groupname)",
 			"body": "expandvertexgroup(${1:geometry}, ${2:groupname})",
+			"scope": "source.vex",
+			"description": "Returns an array of linear vertex numbers corresponding to a group string."
+	},
+	"expandvertexgroup: geometry groupname mode": {
+			"prefix": "expandvertexgroup(geometry, groupname, mode)",
+			"body": "expandvertexgroup(${1:geometry}, ${2:groupname}, ${3:mode})",
 			"scope": "source.vex",
 			"description": "Returns an array of linear vertex numbers corresponding to a group string."
 	},
@@ -8435,6 +8699,12 @@
 			"scope": "source.vex",
 			"description": "Returns a material struct for the current surface."
 	},
+	"solvephysfbik: xforms parents jointoptions targetxforms targets targetoptions iters damping tolerance": {
+			"prefix": "solvephysfbik(xforms, parents, jointoptions, targetxforms, targets, targetoptions, iters, damping, tolerance)",
+			"body": "solvephysfbik(${1:xforms}, ${2:parents}, ${3:jointoptions}, ${4:targetxforms}, ${5:targets}, ${6:targetoptions}, ${7:iters}, ${8:damping}, ${9:tolerance})",
+			"scope": "source.vex",
+			"description": "Applies a full-body inverse kinematics algorithm to a skeleton, with optional control over the center of mass."
+	},
 	"match: pattern subject": {
 			"prefix": "match(pattern, subject)",
 			"body": "match(${1:pattern}, ${2:subject})",
@@ -8494,6 +8764,12 @@
 			"body": "chnumchan(${1:opinput})",
 			"scope": "source.vex",
 			"description": "Returns the number of channels in the input specified."
+	},
+	"importance_remap: map uv ...": {
+			"prefix": "importance_remap(map, uv, ...)",
+			"body": "importance_remap(${1:map}, ${2:uv}, ${3:...})",
+			"scope": "source.vex",
+			"description": "Remaps a texture coordinate to another coordinate in the map to optimize sampling of brighter areas."
 	},
 	"nedgesgroup: filename groupname": {
 			"prefix": "nedgesgroup(filename, groupname)",
@@ -8855,6 +9131,12 @@
 			"scope": "source.vex",
 			"description": "Computes the eigenvalues of a 3\u00d73 matrix."
 	},
+	"json_loads: json flags": {
+			"prefix": "json_loads(json, flags)",
+			"body": "json_loads(${1:json}, ${2:flags})",
+			"scope": "source.vex",
+			"description": "Converts a JSON string into a VEX dictionary."
+	},
 	"agentsolvefbik: geometry outgeo prim targets targetxforms xformgroup iters": {
 			"prefix": "agentsolvefbik(geometry, outgeo, prim, targets, targetxforms, xformgroup, iters)",
 			"body": "agentsolvefbik(${1:geometry}, ${2:outgeo}, ${3:prim}, ${4:targets}, ${5:targetxforms}, ${6:xformgroup}, ${7:iters})",
@@ -9052,6 +9334,12 @@
 			"body": "blinn(${1:nml}, ${2:V}, ${3:roughness}, ${4:...})",
 			"scope": "source.vex",
 			"description": "Returns a Blinn BSDF or computes Blinn shading."
+	},
+	"setpointlocaltransforms: geometry pnts transforms": {
+			"prefix": "setpointlocaltransforms(geometry, pnts, transforms)",
+			"body": "setpointlocaltransforms(${1:geometry}, ${2:pnts}, ${3:transforms})",
+			"scope": "source.vex",
+			"description": "Sets an array of point local transforms at the given point indices."
 	},
 	"writepixel: channel ndc_x ndc_y clr": {
 			"prefix": "writepixel(channel, ndc_x, ndc_y, clr)",

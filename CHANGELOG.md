@@ -2,7 +2,10 @@
 All notable changes to the "vscode-vex" extension will be documented in this file.
 
 
-## [0.5.0] - 2020-06-25
+## [0.5.2] - 2020-11-23
+### Added
+- H18.5 Support
+## [0.5.1] - 2020-06-25
 ### Added
 - H18 Support
 - Almost done with the language server.

@@ -101,6 +101,12 @@
 			"scope": "source.vex",
 			"description": "Generate a uniformly distributed random number."
 	},
+	"usd_iprimvarsize: stage primpath name": {
+			"prefix": "usd_iprimvarsize(stage, primpath, name)",
+			"body": "usd_iprimvarsize(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the tuple size of the primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
 	"primfind: geometry min max": {
 			"prefix": "primfind(geometry, min, max)",
 			"body": "primfind(${1:geometry}, ${2:min}, ${3:max})",
@@ -263,6 +269,12 @@
 			"scope": "source.vex",
 			"description": "Returns number of vertices in a primitive in a geometry."
 	},
+	"usd_iprimvarinterpolation: stage primpath name": {
+			"prefix": "usd_iprimvarinterpolation(stage, primpath, name)",
+			"body": "usd_iprimvarinterpolation(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the element size of the primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
 	"pointvertices: geometry ptnum": {
 			"prefix": "pointvertices(geometry, ptnum)",
 			"body": "pointvertices(${1:geometry}, ${2:ptnum})",
@@ -370,6 +382,12 @@
 			"body": "setprimgroup(${1:geohandle}, ${2:name}, ${3:prim_num}, ${4:value}, ${5:mode})",
 			"scope": "source.vex",
 			"description": "Adds or removes a primitive to/from a group in a geometry."
+	},
+	"mx_cellnoise: pos": {
+			"prefix": "mx_cellnoise(pos)",
+			"body": "mx_cellnoise(${1:pos})",
+			"scope": "source.vex",
+			"description": "MaterialX compatible cellnoise"
 	},
 	"choplocalt: filename channel sample time": {
 			"prefix": "choplocalt(filename, channel, sample, time)",
@@ -658,6 +676,12 @@
 			"body": "getsamplestore(${1:channel}, ${2:P}, ${3:value})",
 			"scope": "source.vex",
 			"description": "Looks up sample data in a channel, referenced by a point."
+	},
+	"agentchannelcount: geometry prim": {
+			"prefix": "agentchannelcount(geometry, prim)",
+			"body": "agentchannelcount(${1:geometry}, ${2:prim})",
+			"scope": "source.vex",
+			"description": "Returns the number of channels in an agent primitive\u2019s rig."
 	},
 	"newsampler: ...": {
 			"prefix": "newsampler(...)",
@@ -1047,13 +1071,49 @@
 			"prefix": "usd_primvarsize(stage, primpath, name)",
 			"body": "usd_primvarsize(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the tuple size of the primvar."
+			"description": "Returns the tuple size of the primvar directly on the USD primitive."
 	},
 	"array: ...": {
 			"prefix": "array(...)",
 			"body": "array(${1:...})",
 			"scope": "source.vex",
 			"description": "Efficiently creates an array from its arguments."
+	},
+	"volumecubicsamplev: geometry primnum pos": {
+			"prefix": "volumecubicsamplev(geometry, primnum, pos)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:primnum}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsamplev: geometry volumename pos": {
+			"prefix": "volumecubicsamplev(geometry, volumename, pos)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:volumename}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsamplev: geometry primnum pos grad": {
+			"prefix": "volumecubicsamplev(geometry, primnum, pos, grad)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsamplev: geometry volumename pos grad": {
+			"prefix": "volumecubicsamplev(geometry, volumename, pos, grad)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsamplev: geometry primnum pos grad hessX hessY hessZ": {
+			"prefix": "volumecubicsamplev(geometry, primnum, pos, grad, hessX, hessY, hessZ)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad}, ${5:hessX}, ${6:hessY}, ${7:hessZ})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsamplev: geometry volumename pos grad hessX hessY hessZ": {
+			"prefix": "volumecubicsamplev(geometry, volumename, pos, grad, hessX, hessY, hessZ)",
+			"body": "volumecubicsamplev(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad}, ${5:hessX}, ${6:hessY}, ${7:hessZ})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
 	},
 	"hsvtorgb: hsv": {
 			"prefix": "hsvtorgb(hsv)",
@@ -1078,6 +1138,42 @@
 			"body": "hasdetailattrib(${1:geometry}, ${2:attribute_name})",
 			"scope": "source.vex",
 			"description": "Returns if a geometry detail attribute exists."
+	},
+	"volumesmoothsample: geometry primnum pos": {
+			"prefix": "volumesmoothsample(geometry, primnum, pos)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:primnum}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsample: geometry volumename pos": {
+			"prefix": "volumesmoothsample(geometry, volumename, pos)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:volumename}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsample: geometry primnum pos grad": {
+			"prefix": "volumesmoothsample(geometry, primnum, pos, grad)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsample: geometry volumename pos grad": {
+			"prefix": "volumesmoothsample(geometry, volumename, pos, grad)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsample: geometry primnum pos grad hess": {
+			"prefix": "volumesmoothsample(geometry, primnum, pos, grad, hess)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad}, ${5:hess})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsample: geometry volumename pos grad hess": {
+			"prefix": "volumesmoothsample(geometry, volumename, pos, grad, hess)",
+			"body": "volumesmoothsample(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad}, ${5:hess})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
 	},
 	"hedge_primary: geometry hedge": {
 			"prefix": "hedge_primary(geometry, hedge)",
@@ -1481,6 +1577,12 @@
 			"scope": "source.vex",
 			"description": "Computes divergence free noise based on Simplex noise."
 	},
+	"mx_perlin: pos": {
+			"prefix": "mx_perlin(pos)",
+			"body": "mx_perlin(${1:pos})",
+			"scope": "source.vex",
+			"description": "MaterialX compatible Perlin noise"
+	},
 	"getpointbbox_min: geometry": {
 			"prefix": "getpointbbox_min(geometry)",
 			"body": "getpointbbox_min(${1:geometry})",
@@ -1583,6 +1685,12 @@
 			"scope": "source.vex",
 			"description": "Returns the length of the string."
 	},
+	"encodeutf8: codepoints": {
+			"prefix": "encodeutf8(codepoints)",
+			"body": "encodeutf8(${1:codepoints})",
+			"scope": "source.vex",
+			"description": "Encodes a UTF8 string from a series of codepoints."
+	},
 	"isconnected: opinput": {
 			"prefix": "isconnected(opinput)",
 			"body": "isconnected(${1:opinput})",
@@ -1665,13 +1773,13 @@
 			"prefix": "usd_primvarindices(stage, primpath, name)",
 			"body": "usd_primvarindices(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the index array of an indexed primvar."
+			"description": "Returns the index array of an indexed primvar directly on the USD primitive."
 	},
 	"usd_primvarindices: stage primpath name timecode": {
 			"prefix": "usd_primvarindices(stage, primpath, name, timecode)",
 			"body": "usd_primvarindices(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
 			"scope": "source.vex",
-			"description": "Returns the index array of an indexed primvar."
+			"description": "Returns the index array of an indexed primvar directly on the USD primitive."
 	},
 	"usd_relbbox: stage primpath purpose position": {
 			"prefix": "usd_relbbox(stage, primpath, purpose, position)",
@@ -2285,6 +2393,12 @@
 			"scope": "source.vex",
 			"description": "Returns the current values of an agent primitive\u2019s channels."
 	},
+	"usd_isabstract: stage primpath": {
+			"prefix": "usd_isabstract(stage, primpath)",
+			"body": "usd_isabstract(${1:stage}, ${2:primpath})",
+			"scope": "source.vex",
+			"description": "Checks if the primitive is abstract."
+	},
 	"gradient: val ...": {
 			"prefix": "gradient(val, ...)",
 			"body": "gradient(${1:val}, ${2:...})",
@@ -2415,43 +2529,49 @@
 			"prefix": "xyzdist(geometry, origin)",
 			"body": "xyzdist(${1:geometry}, ${2:origin})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"xyzdist: geometry origin prim uv": {
 			"prefix": "xyzdist(geometry, origin, prim, uv)",
 			"body": "xyzdist(${1:geometry}, ${2:origin}, ${3:prim}, ${4:uv})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"xyzdist: geometry origin prim uv maxdist": {
 			"prefix": "xyzdist(geometry, origin, prim, uv, maxdist)",
 			"body": "xyzdist(${1:geometry}, ${2:origin}, ${3:prim}, ${4:uv}, ${5:maxdist})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"xyzdist: geometry primgroup origin": {
 			"prefix": "xyzdist(geometry, primgroup, origin)",
 			"body": "xyzdist(${1:geometry}, ${2:primgroup}, ${3:origin})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"xyzdist: geometry primgroup origin prim uv": {
 			"prefix": "xyzdist(geometry, primgroup, origin, prim, uv)",
 			"body": "xyzdist(${1:geometry}, ${2:primgroup}, ${3:origin}, ${4:prim}, ${5:uv})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"xyzdist: geometry primgroup origin prim uv maxdist": {
 			"prefix": "xyzdist(geometry, primgroup, origin, prim, uv, maxdist)",
 			"body": "xyzdist(${1:geometry}, ${2:primgroup}, ${3:origin}, ${4:prim}, ${5:uv}, ${6:maxdist})",
 			"scope": "source.vex",
-			"description": "Finds the distance of a point to a geometry."
+			"description": "Finds the distance from a point to the closest location on surface geometry."
 	},
 	"usd_uniquetransformname: stage primpath transformtype suffix": {
 			"prefix": "usd_uniquetransformname(stage, primpath, transformtype, suffix)",
 			"body": "usd_uniquetransformname(${1:stage}, ${2:primpath}, ${3:transformtype}, ${4:suffix})",
 			"scope": "source.vex",
 			"description": "Constructs a unique full name of a transform operation"
+	},
+	"ramp_pack: basis pos value": {
+			"prefix": "ramp_pack(basis, pos, value)",
+			"body": "ramp_pack(${1:basis}, ${2:pos}, ${3:value})",
+			"scope": "source.vex",
+			"description": "Packs a set of arrays into a string-encoded ramp."
 	},
 	"chnames: ": {
 			"prefix": "chnames()",
@@ -2627,6 +2747,12 @@
 			"scope": "source.vex",
 			"description": "Returns the maximum of the bounding box for the primitive."
 	},
+	"agentmetadata: geometry prim": {
+			"prefix": "agentmetadata(geometry, prim)",
+			"body": "agentmetadata(${1:geometry}, ${2:prim})",
+			"scope": "source.vex",
+			"description": "Returns the agent definition\u2019s metadata dictionary."
+	},
 	"usd_makecollectionpath: stage primpath name": {
 			"prefix": "usd_makecollectionpath(stage, primpath, name)",
 			"body": "usd_makecollectionpath(${1:stage}, ${2:primpath}, ${3:name})",
@@ -2721,7 +2847,7 @@
 			"prefix": "usd_primvarelementsize(stage, primpath, name)",
 			"body": "usd_primvarelementsize(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the element size of the primvar."
+			"description": "Returns the element size of the primvar directly from the USD primitive."
 	},
 	"setagentclipnames: geohandle prim clipnames": {
 			"prefix": "setagentclipnames(geohandle, prim, clipnames)",
@@ -2957,6 +3083,18 @@
 			"scope": "source.vex",
 			"description": "Converts an UTF8 string into a codepoint."
 	},
+	"usd_iprimvar: stage primpath name": {
+			"prefix": "usd_iprimvar(stage, primpath, name)",
+			"body": "usd_iprimvar(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Reads the value of a primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
+	},
+	"usd_iprimvar: stage primpath name timecode": {
+			"prefix": "usd_iprimvar(stage, primpath, name, timecode)",
+			"body": "usd_iprimvar(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
+			"scope": "source.vex",
+			"description": "Reads the value of a primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
+	},
 	"chp: channel": {
 			"prefix": "chp(channel)",
 			"body": "chp(${1:channel})",
@@ -3099,7 +3237,7 @@
 			"prefix": "metastart(filename, p)",
 			"body": "metastart(${1:filename}, ${2:p})",
 			"scope": "source.vex",
-			"description": "Open a geometry file and return a \"handle\" for the metaballs of\ninterest, at the position p."
+			"description": "Open a geometry file and return a handle for the metaballs of\ninterest, at the position p."
 	},
 	"encode: str": {
 			"prefix": "encode(str)",
@@ -3239,11 +3377,17 @@
 			"scope": "source.vex",
 			"description": "Pre multiply matrices."
 	},
+	"usd_setvisibility: stagehandle primpath code": {
+			"prefix": "usd_setvisibility(stagehandle, primpath, code)",
+			"body": "usd_setvisibility(${1:stagehandle}, ${2:primpath}, ${3:code})",
+			"scope": "source.vex",
+			"description": "Configures the primitive to be visible, invisible, or to inherit visibility\nfrom the parent."
+	},
 	"usd_primvartimesamples: stage primpath name": {
 			"prefix": "usd_primvartimesamples(stage, primpath, name)",
 			"body": "usd_primvartimesamples(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the time codes at which the primvar values are authored."
+			"description": "Returns the time codes at which the primvar values are authored directly on\nthe given primitive."
 	},
 	"chname: plane_index chindex": {
 			"prefix": "chname(plane_index, chindex)",
@@ -3581,6 +3725,12 @@
 			"scope": "source.vex",
 			"description": "Returns the parm transform associated with an OP."
 	},
+	"usd_iprimvartimesamples: stage primpath name": {
+			"prefix": "usd_iprimvartimesamples(stage, primpath, name)",
+			"body": "usd_iprimvartimesamples(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the time codes at which the primvar values are authored directly on the given primitive or on its ancestor."
+	},
 	"ramp_lookup: pos ramp": {
 			"prefix": "ramp_lookup(pos, ramp)",
 			"body": "ramp_lookup(${1:pos}, ${2:ramp})",
@@ -3807,25 +3957,25 @@
 			"prefix": "anoise(pos)",
 			"body": "anoise(${1:pos})",
 			"scope": "source.vex",
-			"description": "Generates \"alligator\" noise."
+			"description": "Generates alligator noise."
 	},
 	"anoise: pos turbulence rough atten": {
 			"prefix": "anoise(pos, turbulence, rough, atten)",
 			"body": "anoise(${1:pos}, ${2:turbulence}, ${3:rough}, ${4:atten})",
 			"scope": "source.vex",
-			"description": "Generates \"alligator\" noise."
+			"description": "Generates alligator noise."
 	},
 	"anoise: pos periodX periodY periodZ": {
 			"prefix": "anoise(pos, periodX, periodY, periodZ)",
 			"body": "anoise(${1:pos}, ${2:periodX}, ${3:periodY}, ${4:periodZ})",
 			"scope": "source.vex",
-			"description": "Generates \"alligator\" noise."
+			"description": "Generates alligator noise."
 	},
 	"anoise: pos periodX periodY periodZ turbulence rough atten": {
 			"prefix": "anoise(pos, periodX, periodY, periodZ, turbulence, rough, atten)",
 			"body": "anoise(${1:pos}, ${2:periodX}, ${3:periodY}, ${4:periodZ}, ${5:turbulence}, ${6:rough}, ${7:atten})",
 			"scope": "source.vex",
-			"description": "Generates \"alligator\" noise."
+			"description": "Generates alligator noise."
 	},
 	"wireblinn: tangent exponent ...": {
 			"prefix": "wireblinn(tangent, exponent, ...)",
@@ -3983,6 +4133,42 @@
 			"scope": "source.vex",
 			"description": "Returns the background color for rays that exit the scene."
 	},
+	"volumecubicsample: geometry primnum pos": {
+			"prefix": "volumecubicsample(geometry, primnum, pos)",
+			"body": "volumecubicsample(${1:geometry}, ${2:primnum}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsample: geometry volumename pos": {
+			"prefix": "volumecubicsample(geometry, volumename, pos)",
+			"body": "volumecubicsample(${1:geometry}, ${2:volumename}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsample: geometry primnum pos grad": {
+			"prefix": "volumecubicsample(geometry, primnum, pos, grad)",
+			"body": "volumecubicsample(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsample: geometry volumename pos grad": {
+			"prefix": "volumecubicsample(geometry, volumename, pos, grad)",
+			"body": "volumecubicsample(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsample: geometry primnum pos grad hess": {
+			"prefix": "volumecubicsample(geometry, primnum, pos, grad, hess)",
+			"body": "volumecubicsample(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad}, ${5:hess})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumecubicsample: geometry volumename pos grad hess": {
+			"prefix": "volumecubicsample(geometry, volumename, pos, grad, hess)",
+			"body": "volumecubicsample(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad}, ${5:hess})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
 	"setattrib: geohandle attribclass attribute_name element_num vertex_num value mode": {
 			"prefix": "setattrib(geohandle, attribclass, attribute_name, element_num, vertex_num, value, mode)",
 			"body": "setattrib(${1:geohandle}, ${2:attribclass}, ${3:attribute_name}, ${4:element_num}, ${5:vertex_num}, ${6:value}, ${7:mode})",
@@ -4042,6 +4228,18 @@
 			"body": "bumpname()",
 			"scope": "source.vex",
 			"description": "Returns the default name of the bump plane (as it appears in the\ncompositor preferences)."
+	},
+	"usd_iprimvarelement: stage primpath name index": {
+			"prefix": "usd_iprimvarelement(stage, primpath, name, index)",
+			"body": "usd_iprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index})",
+			"scope": "source.vex",
+			"description": "Reads the value of an element from the array primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
+	},
+	"usd_iprimvarelement: stage primpath name index timecode": {
+			"prefix": "usd_iprimvarelement(stage, primpath, name, index, timecode)",
+			"body": "usd_iprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index}, ${5:timecode})",
+			"scope": "source.vex",
+			"description": "Reads the value of an element from the array primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
 	},
 	"dimport: name out": {
 			"prefix": "dimport(name, out)",
@@ -4132,6 +4330,12 @@
 			"body": "diffuse(${1:nml}, ${2:V}, ${3:roughness}, ${4:...})",
 			"scope": "source.vex",
 			"description": "Returns a diffuse BSDF or computes diffuse shading."
+	},
+	"chiang: nn tanV R_v R_s TT_v TT_s TRT_v TRT_s shift absorption_coeff ior ...": {
+			"prefix": "chiang(nn, tanV, R_v, R_s, TT_v, TT_s, TRT_v, TRT_s, shift, absorption_coeff, ior, ...)",
+			"body": "chiang(${1:nn}, ${2:tanV}, ${3:R_v}, ${4:R_s}, ${5:TT_v}, ${6:TT_s}, ${7:TRT_v}, ${8:TRT_s}, ${9:shift}, ${10:absorption_coeff}, ${11:ior}, ${12:...})",
+			"scope": "source.vex",
+			"description": "Returns a chiang BSDF."
 	},
 	"trunc: x": {
 			"prefix": "trunc(x)",
@@ -4228,6 +4432,12 @@
 			"body": "vertex(${1:geometry}, ${2:attribute_name}, ${3:prim_num}, ${4:vertex_num})",
 			"scope": "source.vex",
 			"description": "Reads a vertex attribute value from a geometry."
+	},
+	"usd_iprimvarelementsize: stage primpath name": {
+			"prefix": "usd_iprimvarelementsize(stage, primpath, name)",
+			"body": "usd_iprimvarelementsize(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the element size of the primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
 	},
 	"hedge_isequiv: geometry hedge1 hedge2": {
 			"prefix": "hedge_isequiv(geometry, hedge1, hedge2)",
@@ -4401,7 +4611,7 @@
 			"prefix": "usd_setvisible(stagehandle, primpath, flag)",
 			"body": "usd_setvisible(${1:stagehandle}, ${2:primpath}, ${3:flag})",
 			"scope": "source.vex",
-			"description": "Sets the primitive visibility."
+			"description": "Makes the primitive visible or invisible."
 	},
 	"osd_lookupface: geometry patch_id patch_u patch_v face_id face_u face_v": {
 			"prefix": "osd_lookupface(geometry, patch_id, patch_u, patch_v, face_id, face_u, face_v)",
@@ -4787,11 +4997,17 @@
 			"scope": "source.vex",
 			"description": "Sets the length of an array."
 	},
+	"resize: array size val": {
+			"prefix": "resize(array, size, val)",
+			"body": "resize(${1:array}, ${2:size}, ${3:val})",
+			"scope": "source.vex",
+			"description": "Sets the length of an array."
+	},
 	"usd_isarrayprimvar: stage primpath name": {
 			"prefix": "usd_isarrayprimvar(stage, primpath, name)",
 			"body": "usd_isarrayprimvar(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Checks if the primvar is an array."
+			"description": "Checks if there is an array primvar directly on the USD primitive."
 	},
 	"findattribvalcount: geometry attribclass attribute_name value": {
 			"prefix": "findattribvalcount(geometry, attribclass, attribute_name, value)",
@@ -5014,6 +5230,12 @@
 			"body": "dihedral(${1:a}, ${2:b})",
 			"scope": "source.vex",
 			"description": "Computes the rotation matrix or quaternion which rotates the vector a onto the vector b."
+	},
+	"usd_iprimvarnames: stage primpath": {
+			"prefix": "usd_iprimvarnames(stage, primpath)",
+			"body": "usd_iprimvarnames(${1:stage}, ${2:primpath})",
+			"scope": "source.vex",
+			"description": "Returns the names of the primvars available directly on the given USD primitive or on USD primitive\u2019s ancestor."
 	},
 	"sample_sphere_cone: center maxangle u": {
 			"prefix": "sample_sphere_cone(center, maxangle, u)",
@@ -5255,6 +5477,12 @@
 			"scope": "source.vex",
 			"description": "Resize the CHOP context temporary buffer"
 	},
+	"usd_isindexediprimvar: stage primpath name": {
+			"prefix": "usd_isindexediprimvar(stage, primpath, name)",
+			"body": "usd_isindexediprimvar(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Checks if there is an indexed primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
 	"relativepath: src dest": {
 			"prefix": "relativepath(src, dest)",
 			"body": "relativepath(${1:src}, ${2:dest})",
@@ -5403,7 +5631,7 @@
 			"prefix": "mspace(P)",
 			"body": "mspace(${1:P})",
 			"scope": "source.vex",
-			"description": "Transforms the position specified into the \"local\" space of the\nmetaball."
+			"description": "Transforms the position specified into the local space of the\nmetaball."
 	},
 	"setagentcliptimes: geohandle prim cliptimes": {
 			"prefix": "setagentcliptimes(geohandle, prim, cliptimes)",
@@ -5432,6 +5660,18 @@
 	"getcomp: array index": {
 			"prefix": "getcomp(array, index)",
 			"body": "getcomp(${1:array}, ${2:index})",
+			"scope": "source.vex",
+			"description": "Extracts a single component of a vector type, matrix type, or array."
+	},
+	"getcomp: array i j": {
+			"prefix": "getcomp(array, i, j)",
+			"body": "getcomp(${1:array}, ${2:i}, ${3:j})",
+			"scope": "source.vex",
+			"description": "Extracts a single component of a vector type, matrix type, or array."
+	},
+	"getcomp: array i j k": {
+			"prefix": "getcomp(array, i, j, k)",
+			"body": "getcomp(${1:array}, ${2:i}, ${3:j}, ${4:k})",
 			"scope": "source.vex",
 			"description": "Extracts a single component of a vector type, matrix type, or array."
 	},
@@ -5583,13 +5823,13 @@
 			"prefix": "usd_flattenedprimvarelement(stage, primpath, name, index)",
 			"body": "usd_flattenedprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index})",
 			"scope": "source.vex",
-			"description": "Reads an element value of a flattened array primvar."
+			"description": "Reads an element value of a flattened array primvar directly from a USD primitive."
 	},
 	"usd_flattenedprimvarelement: stage primpath name index timecode": {
 			"prefix": "usd_flattenedprimvarelement(stage, primpath, name, index, timecode)",
 			"body": "usd_flattenedprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index}, ${5:timecode})",
 			"scope": "source.vex",
-			"description": "Reads an element value of a flattened array primvar."
+			"description": "Reads an element value of a flattened array primvar directly from a USD primitive."
 	},
 	"israytracing: ": {
 			"prefix": "israytracing()",
@@ -5620,6 +5860,12 @@
 			"body": "usd_isarray(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
 			"description": "Checks if the attribute is an array."
+	},
+	"usd_iprimvartypename: stage primpath name": {
+			"prefix": "usd_iprimvartypename(stage, primpath, name)",
+			"body": "usd_iprimvartypename(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the name of the primvar type found on the given primitive or its ancestor."
 	},
 	"rawcolormap: filename uvw ...": {
 			"prefix": "rawcolormap(filename, uvw, ...)",
@@ -5759,6 +6005,12 @@
 			"scope": "source.vex",
 			"description": "Returns the preconstraint transform associated with an OP."
 	},
+	"usd_ismodel: stage primpath": {
+			"prefix": "usd_ismodel(stage, primpath)",
+			"body": "usd_ismodel(${1:stage}, ${2:primpath})",
+			"scope": "source.vex",
+			"description": "Checks if the primitive is a model."
+	},
 	"usd_pointinstance_getbbox_center: stage primpath instance_index purpose": {
 			"prefix": "usd_pointinstance_getbbox_center(stage, primpath, instance_index, purpose)",
 			"body": "usd_pointinstance_getbbox_center(${1:stage}, ${2:primpath}, ${3:instance_index}, ${4:purpose})",
@@ -5818,6 +6070,12 @@
 			"body": "agentlocaltransform(${1:geometry}, ${2:prim}, ${3:transform})",
 			"scope": "source.vex",
 			"description": "Returns the current local space transform of an agent primitive\u2019s bone."
+	},
+	"agentcurrentlayers: geometry prim": {
+			"prefix": "agentcurrentlayers(geometry, prim)",
+			"body": "agentcurrentlayers(${1:geometry}, ${2:prim})",
+			"scope": "source.vex",
+			"description": "Returns the names of an agent primitive\u2019s current layers."
 	},
 	"primhedge: geometry prim": {
 			"prefix": "primhedge(geometry, prim)",
@@ -5884,6 +6142,18 @@
 			"body": "detailattrib(${1:geometry}, ${2:attribute_name}, ${3:ignored}, ${4:success})",
 			"scope": "source.vex",
 			"description": "Reads a detail attribute value from a geometry."
+	},
+	"usd_flattenediprimvarelement: stage primpath name index": {
+			"prefix": "usd_flattenediprimvarelement(stage, primpath, name, index)",
+			"body": "usd_flattenediprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index})",
+			"scope": "source.vex",
+			"description": "Reads an element value of a flattened array primvar directly from the USD primitive or from its ancestor."
+	},
+	"usd_flattenediprimvarelement: stage primpath name index timecode": {
+			"prefix": "usd_flattenediprimvarelement(stage, primpath, name, index, timecode)",
+			"body": "usd_flattenediprimvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index}, ${5:timecode})",
+			"scope": "source.vex",
+			"description": "Reads an element value of a flattened array primvar directly from the USD primitive or from its ancestor."
 	},
 	"setagentlocaltransform: geohandle prim transform index": {
 			"prefix": "setagentlocaltransform(geohandle, prim, transform, index)",
@@ -6053,6 +6323,12 @@
 			"scope": "source.vex",
 			"description": "Gets the value of a specific voxel."
 	},
+	"replace_match: str pattern_from pattern_to": {
+			"prefix": "replace_match(str, pattern_from, pattern_to)",
+			"body": "replace_match(${1:str}, ${2:pattern_from}, ${3:pattern_to})",
+			"scope": "source.vex",
+			"description": "Replaces the matched string pattern with another pattern."
+	},
 	"getphotonlight: ": {
 			"prefix": "getphotonlight()",
 			"body": "getphotonlight()",
@@ -6130,6 +6406,12 @@
 			"body": "pcfilter(${1:handle}, ${2:channel_name}, ${3:...})",
 			"scope": "source.vex",
 			"description": "Filters points found by pcopen using a simple reconstruction filter."
+	},
+	"setagentcollisionlayers: geohandle prim layernames": {
+			"prefix": "setagentcollisionlayers(geohandle, prim, layernames)",
+			"body": "setagentcollisionlayers(${1:geohandle}, ${2:prim}, ${3:layernames})",
+			"scope": "source.vex",
+			"description": "Sets the collision layers of an agent primitive."
 	},
 	"onoise: pos": {
 			"prefix": "onoise(pos)",
@@ -6219,13 +6501,13 @@
 			"prefix": "usd_primvarlen(stage, primpath, name)",
 			"body": "usd_primvarlen(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the length of the array primvar."
+			"description": "Returns the length of the array primvar directly on the USD primitive."
 	},
 	"usd_primvarlen: stage primpath name timecode": {
 			"prefix": "usd_primvarlen(stage, primpath, name, timecode)",
 			"body": "usd_primvarlen(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
 			"scope": "source.vex",
-			"description": "Returns the length of the array primvar."
+			"description": "Returns the length of the array primvar directly on the USD primitive."
 	},
 	"depthmap: filename uvw": {
 			"prefix": "depthmap(filename, uvw)",
@@ -6441,7 +6723,7 @@
 			"prefix": "usd_primvarinterpolation(stage, primpath, name)",
 			"body": "usd_primvarinterpolation(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the element size of the primvar."
+			"description": "Returns the element size of the primvar directly on the USD primitive."
 	},
 	"sample_orientation_uniform: u": {
 			"prefix": "sample_orientation_uniform(u)",
@@ -6544,6 +6826,12 @@
 			"body": "agentfindtransformgroup(${1:geometry}, ${2:prim}, ${3:transformgroup})",
 			"scope": "source.vex",
 			"description": "Finds the index of a transform group in an agent\u2019s definition."
+	},
+	"agentcollisionlayers: geometry prim": {
+			"prefix": "agentcollisionlayers(geometry, prim)",
+			"body": "agentcollisionlayers(${1:geometry}, ${2:prim})",
+			"scope": "source.vex",
+			"description": "Returns the names of an agent primitive\u2019s collision layers."
 	},
 	"getfogname: ": {
 			"prefix": "getfogname()",
@@ -6736,6 +7024,18 @@
 			"body": "usd_addtransform(${1:stagehandle}, ${2:primpath}, ${3:suffix}, ${4:xform})",
 			"scope": "source.vex",
 			"description": "Applies a transformation to the primitive"
+	},
+	"usd_iprimvarindices: stage primpath name": {
+			"prefix": "usd_iprimvarindices(stage, primpath, name)",
+			"body": "usd_iprimvarindices(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the index array of an indexed primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
+	"usd_iprimvarindices: stage primpath name timecode": {
+			"prefix": "usd_iprimvarindices(stage, primpath, name, timecode)",
+			"body": "usd_iprimvarindices(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
+			"scope": "source.vex",
+			"description": "Returns the index array of an indexed primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
 	},
 	"environment: texture_filename reflect_dir ...": {
 			"prefix": "environment(texture_filename, reflect_dir, ...)",
@@ -7091,6 +7391,12 @@
 			"scope": "source.vex",
 			"description": "Generates turbulence matching the output of the HScript turb() expression function."
 	},
+	"usd_specifier: stage primpath": {
+			"prefix": "usd_specifier(stage, primpath)",
+			"body": "usd_specifier(${1:stage}, ${2:primpath})",
+			"scope": "source.vex",
+			"description": "Returns the primitive\u2019s specifier."
+	},
 	"set: v1 v2": {
 			"prefix": "set(v1, v2)",
 			"body": "set(${1:v1}, ${2:v2})",
@@ -7365,13 +7671,13 @@
 			"prefix": "usd_primvar(stage, primpath, name)",
 			"body": "usd_primvar(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Reads the value of a primvar from the USD primitive."
+			"description": "Reads the value of a primvar directly from the USD primitive."
 	},
 	"usd_primvar: stage primpath name timecode": {
 			"prefix": "usd_primvar(stage, primpath, name, timecode)",
 			"body": "usd_primvar(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
 			"scope": "source.vex",
-			"description": "Reads the value of a primvar from the USD primitive."
+			"description": "Reads the value of a primvar directly from the USD primitive."
 	},
 	"slideframe: t0 t1 v0": {
 			"prefix": "slideframe(t0, t1, v0)",
@@ -7456,6 +7762,18 @@
 			"body": "isnan(${1:x})",
 			"scope": "source.vex",
 			"description": "Checks whether a value is not a number."
+	},
+	"replace: str old new": {
+			"prefix": "replace(str, old, new)",
+			"body": "replace(${1:str}, ${2:old}, ${3:new})",
+			"scope": "source.vex",
+			"description": "Replaces occurrences of a substring."
+	},
+	"replace: str old new count": {
+			"prefix": "replace(str, old, new, count)",
+			"body": "replace(${1:str}, ${2:old}, ${3:new}, ${4:count})",
+			"scope": "source.vex",
+			"description": "Replaces occurrences of a substring."
 	},
 	"usd_addprimvar: stagehandle primpath name typename": {
 			"prefix": "usd_addprimvar(stagehandle, primpath, name, typename)",
@@ -7565,6 +7883,12 @@
 			"scope": "source.vex",
 			"description": "Returns the type of a geometry point attribute."
 	},
+	"decodeutf8: str": {
+			"prefix": "decodeutf8(str)",
+			"body": "decodeutf8(${1:str})",
+			"scope": "source.vex",
+			"description": "Decodes a UTF8 string into a series of codepoints."
+	},
 	"Du: n ...": {
 			"prefix": "Du(n, ...)",
 			"body": "Du(${1:n}, ${2:...})",
@@ -7599,7 +7923,7 @@
 			"prefix": "usd_isindexedprimvar(stage, primpath, name)",
 			"body": "usd_isindexedprimvar(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Checks if the primvar is indexed."
+			"description": "Checks if there is an indexed primvar directly on the USD primitive."
 	},
 	"pcsegment: geometry PChannel P0 P1 max_distance maxpoints": {
 			"prefix": "pcsegment(geometry, PChannel, P0, P1, max_distance, maxpoints)",
@@ -7631,6 +7955,18 @@
 			"scope": "source.vex",
 			"description": "Tells the COP manager that you need access to the given frame."
 	},
+	"usd_flattenediprimvar: stage primpath name": {
+			"prefix": "usd_flattenediprimvar(stage, primpath, name)",
+			"body": "usd_flattenediprimvar(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Reads the value of a flattened primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
+	},
+	"usd_flattenediprimvar: stage primpath name timecode": {
+			"prefix": "usd_flattenediprimvar(stage, primpath, name, timecode)",
+			"body": "usd_flattenediprimvar(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
+			"scope": "source.vex",
+			"description": "Reads the value of a flattened primvar directly from the USD primitive or from USD primitive\u2019s ancestor."
+	},
 	"maskname: ": {
 			"prefix": "maskname()",
 			"body": "maskname()",
@@ -7652,6 +7988,18 @@
 	"setcomp: array value index": {
 			"prefix": "setcomp(array, value, index)",
 			"body": "setcomp(${1:array}, ${2:value}, ${3:index})",
+			"scope": "source.vex",
+			"description": "Sets a single component of a vector or matrix type, or an item in an array."
+	},
+	"setcomp: array value i j": {
+			"prefix": "setcomp(array, value, i, j)",
+			"body": "setcomp(${1:array}, ${2:value}, ${3:i}, ${4:j})",
+			"scope": "source.vex",
+			"description": "Sets a single component of a vector or matrix type, or an item in an array."
+	},
+	"setcomp: array value i j k": {
+			"prefix": "setcomp(array, value, i, j, k)",
+			"body": "setcomp(${1:array}, ${2:value}, ${3:i}, ${4:j}, ${5:k})",
 			"scope": "source.vex",
 			"description": "Sets a single component of a vector or matrix type, or an item in an array."
 	},
@@ -7931,11 +8279,23 @@
 			"scope": "source.vex",
 			"description": "Computes the approximate diameter of a voxel."
 	},
+	"usd_iprimvarlen: stage primpath name": {
+			"prefix": "usd_iprimvarlen(stage, primpath, name)",
+			"body": "usd_iprimvarlen(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Returns the length of the array primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
+	"usd_iprimvarlen: stage primpath name timecode": {
+			"prefix": "usd_iprimvarlen(stage, primpath, name, timecode)",
+			"body": "usd_iprimvarlen(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
+			"scope": "source.vex",
+			"description": "Returns the length of the array primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
+	},
 	"usd_primvarnames: stage primpath": {
 			"prefix": "usd_primvarnames(stage, primpath)",
 			"body": "usd_primvarnames(${1:stage}, ${2:primpath})",
 			"scope": "source.vex",
-			"description": "Returns the names of the primvars available on the primitive."
+			"description": "Returns the names of the primvars available on the given USD primitive."
 	},
 	"usd_collectionincludes: stage collectionpath": {
 			"prefix": "usd_collectionincludes(stage, collectionpath)",
@@ -7943,17 +8303,53 @@
 			"scope": "source.vex",
 			"description": "Obtains the object paths that are in the collection\u2019s include list"
 	},
+	"volumesmoothsamplev: geometry primnum pos": {
+			"prefix": "volumesmoothsamplev(geometry, primnum, pos)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:primnum}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsamplev: geometry volumename pos": {
+			"prefix": "volumesmoothsamplev(geometry, volumename, pos)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:volumename}, ${3:pos})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsamplev: geometry primnum pos grad": {
+			"prefix": "volumesmoothsamplev(geometry, primnum, pos, grad)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsamplev: geometry volumename pos grad": {
+			"prefix": "volumesmoothsamplev(geometry, volumename, pos, grad)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsamplev: geometry primnum pos grad hessX hessY hessZ": {
+			"prefix": "volumesmoothsamplev(geometry, primnum, pos, grad, hessX, hessY, hessZ)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:primnum}, ${3:pos}, ${4:grad}, ${5:hessX}, ${6:hessY}, ${7:hessZ})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
+	"volumesmoothsamplev: geometry volumename pos grad hessX hessY hessZ": {
+			"prefix": "volumesmoothsamplev(geometry, volumename, pos, grad, hessX, hessY, hessZ)",
+			"body": "volumesmoothsamplev(${1:geometry}, ${2:volumename}, ${3:pos}, ${4:grad}, ${5:hessX}, ${6:hessY}, ${7:hessZ})",
+			"scope": "source.vex",
+			"description": "Samples the volume primitive\u2019s value."
+	},
 	"random: position": {
 			"prefix": "random(position)",
 			"body": "random(${1:position})",
 			"scope": "source.vex",
-			"description": "Generate a random number based on the position in 1-4D space."
+			"description": "Generate a random number based on the integer position in 1-4D space."
 	},
 	"random: xpos ypos": {
 			"prefix": "random(xpos, ypos)",
 			"body": "random(${1:xpos}, ${2:ypos})",
 			"scope": "source.vex",
-			"description": "Generate a random number based on the position in 1-4D space."
+			"description": "Generate a random number based on the integer position in 1-4D space."
 	},
 	"detailintrinsic: geometry intrinsic_name": {
 			"prefix": "detailintrinsic(geometry, intrinsic_name)",
@@ -8205,13 +8601,13 @@
 			"prefix": "usd_primvarelement(stage, primpath, name, index)",
 			"body": "usd_primvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index})",
 			"scope": "source.vex",
-			"description": "Reads the value of an element from the array primvar."
+			"description": "Reads the value of an element from the array primvar directly from the USD primitive."
 	},
 	"usd_primvarelement: stage primpath name index timecode": {
 			"prefix": "usd_primvarelement(stage, primpath, name, index, timecode)",
 			"body": "usd_primvarelement(${1:stage}, ${2:primpath}, ${3:name}, ${4:index}, ${5:timecode})",
 			"scope": "source.vex",
-			"description": "Reads the value of an element from the array primvar."
+			"description": "Reads the value of an element from the array primvar directly from the USD primitive."
 	},
 	"switch: direct indirect": {
 			"prefix": "switch(direct, indirect)",
@@ -8476,6 +8872,12 @@
 			"body": "opdigits()",
 			"scope": "source.vex",
 			"description": "Returns the integer value of the last sequence of digits of a string"
+	},
+	"usd_isarrayiprimvar: stage primpath name": {
+			"prefix": "usd_isarrayiprimvar(stage, primpath, name)",
+			"body": "usd_isarrayiprimvar(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Checks if there is an array primvar directly on the USD primitive or on USD primitive\u2019s ancestor."
 	},
 	"splitpath: fullpath dir name": {
 			"prefix": "splitpath(fullpath, dir, name)",
@@ -8829,13 +9231,13 @@
 			"prefix": "usd_flattenedprimvar(stage, primpath, name)",
 			"body": "usd_flattenedprimvar(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Reads the value of an flattened primvar from the USD primitive."
+			"description": "Reads the value of an flattened primvar directly from the USD primitive."
 	},
 	"usd_flattenedprimvar: stage primpath name timecode": {
 			"prefix": "usd_flattenedprimvar(stage, primpath, name, timecode)",
 			"body": "usd_flattenedprimvar(${1:stage}, ${2:primpath}, ${3:name}, ${4:timecode})",
 			"scope": "source.vex",
-			"description": "Reads the value of an flattened primvar from the USD primitive."
+			"description": "Reads the value of an flattened primvar directly from the USD primitive."
 	},
 	"pcwrite: filename ...": {
 			"prefix": "pcwrite(filename, ...)",
@@ -9185,6 +9587,12 @@
 			"scope": "source.vex",
 			"description": "Checks if the primitive is active."
 	},
+	"setagentcurrentlayers: geohandle prim layernames": {
+			"prefix": "setagentcurrentlayers(geohandle, prim, layernames)",
+			"body": "setagentcurrentlayers(${1:geohandle}, ${2:prim}, ${3:layernames})",
+			"scope": "source.vex",
+			"description": "Sets the current display layers of an agent primitive."
+	},
 	"usd_addscale: stagehandle primpath suffix scale": {
 			"prefix": "usd_addscale(stagehandle, primpath, suffix, scale)",
 			"body": "usd_addscale(${1:stagehandle}, ${2:primpath}, ${3:suffix}, ${4:scale})",
@@ -9239,9 +9647,15 @@
 			"scope": "source.vex",
 			"description": "Builds a 3\u00d73 or 4\u00d74 transform matrix."
 	},
-	"metaweight: filename p": {
-			"prefix": "metaweight(filename, p)",
-			"body": "metaweight(${1:filename}, ${2:p})",
+	"usd_isiprimvar: stage primpath name": {
+			"prefix": "usd_isiprimvar(stage, primpath, name)",
+			"body": "usd_isiprimvar(${1:stage}, ${2:primpath}, ${3:name})",
+			"scope": "source.vex",
+			"description": "Checks if the primitive or its ancestor has a primvar of the given name."
+	},
+	"metaweight: geometry p": {
+			"prefix": "metaweight(geometry, p)",
+			"body": "metaweight(${1:geometry}, ${2:p})",
 			"scope": "source.vex",
 			"description": "Returns the metaweight of the geometry at position p."
 	},
@@ -9381,7 +9795,7 @@
 			"prefix": "usd_primvartypename(stage, primpath, name)",
 			"body": "usd_primvartypename(${1:stage}, ${2:primpath}, ${3:name})",
 			"scope": "source.vex",
-			"description": "Returns the name of the primvar type."
+			"description": "Returns the name of the primvar type found on the given primitive."
 	},
 	"agenttransformtolocal: geometry prim transforms": {
 			"prefix": "agenttransformtolocal(geometry, prim, transforms)",

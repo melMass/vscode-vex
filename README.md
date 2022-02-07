@@ -13,6 +13,9 @@
 ![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/files.png)
 
 # Releases
+## [0.6.0]
+- Updated for **H19**.
+
 ## [0.5.2]
 - Updated for **H18.5**.
 

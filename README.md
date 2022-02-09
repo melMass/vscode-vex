@@ -38,8 +38,3 @@
 	
 	![](https://raw.githubusercontent.com/melMass/vscode-vex/master/images/basic_snippets.gif)
 
-### License
-
-© Public Domain.
-
-

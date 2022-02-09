@@ -1,6 +1,8 @@
 # Change Log
 All notable changes to the "vscode-vex" extension will be documented in this file.
 
+## [0.6.0] - 2022-02-05
+- Updated for **H19**.
 
 ## [0.5.2] - 2020-11-23
 ### Added

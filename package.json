@@ -28,7 +28,8 @@
                     "vex"
                 ],
                 "extensions": [
-                    ".vfl"
+                    ".vfl",
+                    ".vex"
                 ],
                 "configuration": "./language-configuration.json"
             }
